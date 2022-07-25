@@ -18,9 +18,11 @@ const southAmericaCountries = [
 ];
 
 export const filterWHO = (countries) => {
+  let confirmed = 0;
   const response = [];
   countries.data.forEach((country) => {
     if (southAmericaCountries.includes(country.code)) {
+      confirmed += country.latest_data.confirmed;
       response.push({
         code: country.code,
         name: country.name,
@@ -33,6 +35,11 @@ export const filterWHO = (countries) => {
         timeline: [],
       });
     }
+  });
+  response.push({
+    code: 'S_A',
+    name: 'South America',
+    confirmed,
   });
   return response;
 };
