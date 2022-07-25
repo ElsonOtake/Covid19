@@ -1,11 +1,11 @@
-import React, { useEffect, useSelector } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import S_A from '../images/S_A.png';
 import BR from '../images/BR.png';
 import { fetchWHO } from '../redux/Home/Home';
 
 const Home = () => {
-  const covid19Data = useSelector((store) => store.covid19Reducer);
+  const covid19Data = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
