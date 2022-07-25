@@ -8,7 +8,9 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => dispatch(fetchWHO()));
+  useEffect(() => {
+    dispatch(fetchWHO())
+  });
 
   return (
     <>
