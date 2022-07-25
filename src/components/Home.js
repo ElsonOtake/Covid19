@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import S_A from '../images/S_A.png';
-import BR from '../images/BR.png';
 import { fetchWHO } from '../redux/Home/Home';
+import Article from './Article';
 
 const Home = () => {
   const covid19Data = useSelector((state) => state);
@@ -20,24 +19,37 @@ const Home = () => {
         <p>Covid19 in South America</p>
       </header>
       <main>
-        <article>
-          <img src={S_A} alt="South America map" />
-          <section>
-            <h1>South America</h1>
-            <p className="confirmed">37,672,077 Confirmed</p>
-          </section>
-        </article>
+        {
+          covid19Data.length > 0 && covid19Data.filter(
+            (country) => country.code === 'S_A',
+          ).map((continent) => (
+            <Article
+              key={continent.code}
+              code={continent.code}
+              name={continent.name}
+              confirmed={continent.confirmed}
+            />
+          ))
+        }
         <section>
           <h3>STATS BY COUNTRY</h3>
         </section>
         <div>
-          <article>
-            <img src={BR} alt="Brazil map" />
-            <section>
-              <h2>Brazil</h2>
-              <p>21,327,616</p>
-            </section>
-          </article>
+          {
+            covid19Data.length > 0 && covid19Data.map((country) => {
+              if (country.code !== 'S_A') {
+                return (
+                  <Article
+                    key={country.code}
+                    code={country.code}
+                    name={country.name}
+                    confirmed={country.confirmed}
+                  />
+                );
+              }
+              return null;
+            })
+          }
         </div>
       </main>
     </>
