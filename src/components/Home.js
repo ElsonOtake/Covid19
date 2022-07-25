@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useSelector } from 'react';
 import { useDispatch } from 'react-redux';
 import S_A from '../images/S_A.png';
 import BR from '../images/BR.png';
 import { fetchWHO } from '../redux/Home/Home';
 
 const Home = () => {
-
+  const covid19Data = useSelector((store) => store.covid19Reducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWHO())
-  });
+    if (covid19Data.length === 0) {
+      dispatch(fetchWHO());
+    }
+  }, [covid19Data.length]);
 
   return (
     <>
@@ -39,7 +41,7 @@ const Home = () => {
         </div>
       </main>
     </>
-    
+
   );
 };
 
