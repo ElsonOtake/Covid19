@@ -81,6 +81,8 @@ Give a ⭐️ if you like this project!
 - Microverse
 - W3Schools
 - Stack Overflow
+- [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
+- [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/)
 
 
 ## 📝 License
