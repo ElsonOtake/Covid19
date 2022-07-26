@@ -42,7 +42,6 @@ export const fetchWHO = createAsyncThunk(
       type: FETCH,
       payload: info,
     });
-    console.log(info);
   },
 );
 
