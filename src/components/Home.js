@@ -4,10 +4,11 @@ import { fetchWHO } from '../redux/Home/Home';
 import Article from './Article';
 
 const Home = () => {
-  const covid19Data = useSelector((store) => store);
+  const covid19Data = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(covid19Data);
     if (covid19Data.length === 0) {
       dispatch(fetchWHO());
     }
