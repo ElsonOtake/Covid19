@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWHO } from '../redux/Home/Home';
 import Article from './Article';
+import Header from './Header';
 
 const Home = () => {
   const covid19Data = useSelector((state) => state);
@@ -17,9 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <header>
-        <p>Covid19 in South America</p>
-      </header>
+      <Header />
       <main>
         {
           covid19Data.length > 0 && (
