@@ -8,11 +8,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(covid19Data);
     if (covid19Data.length === 0) {
       dispatch(fetchWHO());
     }
   }, [covid19Data.length]);
+
+  const getSumConfirmed = (total, country) => total + country.confirmed;
 
   return (
     <>
@@ -21,16 +22,13 @@ const Home = () => {
       </header>
       <main>
         {
-          covid19Data.length > 0 && covid19Data.filter(
-            (country) => country.code === 'S_A',
-          ).map((continent) => (
+          covid19Data.length > 0 && (
             <Article
-              key={continent.code}
-              code={continent.code}
-              name={continent.name}
-              confirmed={continent.confirmed}
+              code="S_A"
+              name="South America"
+              confirmed={covid19Data.reduce(getSumConfirmed, 0)}
             />
-          ))
+          )
         }
         <section>
           <h3>STATS BY COUNTRY</h3>
