@@ -5,7 +5,7 @@ import Article from './Article';
 import Header from './Header';
 
 const Home = () => {
-  const covid19Data = useSelector((state) => state);
+  const covid19Data = useSelector((state) => state.covid19Reducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
