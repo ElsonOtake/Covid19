@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import S_A from '../images/S_A.png';
 import AR from '../images/AR.png';
 import BO from '../images/BO.png';
@@ -61,35 +62,31 @@ const Article = ({ code, name, confirmed }) => {
       imgSrc = S_A;
   }
 
-  const displayDetail = (code) => console.log('The code is ', code);
-
   return (
-    <article>
-      <img src={imgSrc} alt={`${name} map`} />
-      <section>
-        <h2>{name}</h2>
+    <Link to={`details/${code}`}>
+      <article>
+        <img src={imgSrc} alt={`${name} map`} />
+        <section>
+          <h2>{name}</h2>
+          {
+            name === 'South America'
+              ? (
+                <p>
+                  {`${confirmed.toLocaleString()} Confirmed`}
+                </p>
+              )
+              : (
+                <p>
+                  {confirmed.toLocaleString()}
+                </p>
+              )
+          }
+        </section>
         {
-          name === 'South America'
-            ? (
-              <p>
-                {`${confirmed.toLocaleString()} Confirmed`}
-              </p>
-            )
-            : (
-              <p>
-                {confirmed.toLocaleString()}
-              </p>
-            )
+          name !== 'South America' && <i className="fa-solid fa-circle-arrow-right" />
         }
-      </section>
-      {
-        name !== 'South America' && (
-          <button onClick={displayDetail(code)} type="button">
-            <i className="fa-solid fa-circle-arrow-right" />
-          </button>
-        )
-      }
-    </article>
+      </article>
+    </Link>
   );
 };
 
