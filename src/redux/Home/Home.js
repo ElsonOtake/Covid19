@@ -15,14 +15,34 @@ const covid19Reducer = (state = [], action = {}) => {
 export const fetchWHO = createAsyncThunk(
   FETCH,
   async (_, { dispatch }) => {
-    const res = await axiosGetWHO()
-      .then(
-        (data) => dispatch({
-          type: FETCH,
-          payload: data,
-        }),
-      );
-    return res;
+    const southAmericaCountries = [
+      'AR',
+      'BO',
+      'BR',
+      'CL',
+      'CO',
+      'EC',
+      'GF',
+      'GY',
+      'PE',
+      'PY',
+      'SR',
+      'UY',
+      'VE',
+    ];
+    const info = [];
+    await Promise.all(southAmericaCountries.map((code) => {
+      axiosGetWHO(code)
+        .then(
+          (data) => info.push(data),
+        );
+      return info;
+    }));
+    dispatch({
+      type: FETCH,
+      payload: info,
+    });
+    console.log(info);
   },
 );
 
