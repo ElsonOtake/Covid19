@@ -61,6 +61,8 @@ const Article = ({ code, name, confirmed }) => {
       imgSrc = S_A;
   }
 
+  const displayDetail = (code) => console.log('The code is ', code);
+
   return (
     <article>
       <img src={imgSrc} alt={`${name} map`} />
@@ -80,6 +82,13 @@ const Article = ({ code, name, confirmed }) => {
             )
         }
       </section>
+      {
+        name !== 'South America' && (
+          <button onClick={displayDetail(code)} type="button">
+            <i className="fa-solid fa-circle-arrow-right" />
+          </button>
+        )
+      }
     </article>
   );
 };
