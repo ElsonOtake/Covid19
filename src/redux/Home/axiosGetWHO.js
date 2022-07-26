@@ -1,52 +1,28 @@
 import axios from 'axios';
 
 const urlWHO = 'https://corona-api.com/countries';
-const southAmericaCountries = [
-  'AR',
-  'BO',
-  'BR',
-  'CL',
-  'CO',
-  'EC',
-  'GF',
-  'GY',
-  'PE',
-  'PY',
-  'SR',
-  'UY',
-  'VE',
-];
 
-export const filterWHO = (countries) => {
-  let confirmed = 0;
-  const response = [];
-  countries.data.forEach((country) => {
-    if (southAmericaCountries.includes(country.code)) {
-      confirmed += country.latest_data.confirmed;
-      response.push({
-        code: country.code,
-        name: country.name,
-        population: country.population,
-        confirmed: country.latest_data.confirmed,
-        critical: country.latest_data.critical,
-        deaths: country.latest_data.deaths,
-        casesPerMillion: country.latest_data.calculated.cases_per_million_population,
-        deathRate: country.latest_data.calculated.death_rate,
-        timeline: [],
-      });
-    }
-  });
-  response.push({
-    code: 'S_A',
-    name: 'South America',
-    confirmed,
-  });
-  return response;
-};
+export const filterWHO = (countries) => (
+  {
+    code: countries.data.code,
+    name: countries.data.name,
+    population: countries.data.population,
+    confirmed: countries.data.latest_data.confirmed,
+    critical: countries.data.latest_data.critical,
+    deaths: countries.data.latest_data.deaths,
+    casesPerMillion: countries.data.latest_data.calculated.cases_per_million_population,
+    deathRate: countries.data.latest_data.calculated.death_rate,
+    timeline: countries.data.timeline.slice(0, 7).map((info) => ({
+      date: info.date,
+      newConfirmed: info.new_confirmed,
+      newDeaths: info.new_deaths,
+    })),
+  }
+);
 
-const axiosGetWHO = async () => {
+const axiosGetWHO = async (code = '') => {
   try {
-    const response = await axios.get(urlWHO);
+    const response = await axios.get(`${urlWHO}/${code}`);
     return filterWHO(response.data);
   } catch (error) {
     throw new Error(error);
