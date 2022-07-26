@@ -1,6 +1,6 @@
 import axios from 'axios';
+import urlWHO from '../Global';
 
-const urlWHO = 'https://corona-api.com/countries';
 const southAmericaCountries = [
   'AR',
   'BO',
