@@ -207,7 +207,7 @@ const Details = () => {
               </div>
             </section>
             <section className="line">
-              <section className="lineDeaths">
+              <section className="lineChart">
                 <h4>Deaths</h4>
                 <LineChart
                   width={300}
@@ -224,7 +224,7 @@ const Details = () => {
                   <Tooltip contentStyle={{ backgroundColor: 'transparent' }} />
                 </LineChart>
               </section>
-              <section className="lineConfirmed">
+              <section className="lineChart">
                 <h4>Confirmed</h4>
                 <LineChart
                   width={300}
@@ -242,8 +242,9 @@ const Details = () => {
                 </LineChart>
               </section>
             </section>
+            <h5>South America</h5>
             <div className="pie">
-              <section className="piePopulation">
+              <section className="pieChart">
                 <PieChart width={200} height={200}>
                   <Pie
                     data={piePopulationData}
@@ -260,7 +261,7 @@ const Details = () => {
                 </PieChart>
                 <h4>Population</h4>
               </section>
-              <section className="pieConfirmed">
+              <section className="pieChart">
                 <PieChart width={200} height={200}>
                   <Pie
                     data={pieConfirmedData}
@@ -277,7 +278,7 @@ const Details = () => {
                 </PieChart>
                 <h4>Confirmed</h4>
               </section>
-              <section className="pieCritical">
+              <section className="pieChart">
                 <PieChart width={200} height={200}>
                   <Pie
                     data={pieCriticalData}
@@ -294,7 +295,7 @@ const Details = () => {
                 </PieChart>
                 <h4>Critical</h4>
               </section>
-              <section className="pieDeaths">
+              <section className="pieChart">
                 <PieChart width={200} height={200}>
                   <Pie
                     data={pieDeathsData}
