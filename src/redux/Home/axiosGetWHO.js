@@ -17,20 +17,6 @@ const southAmericaCountries = [
   'VE',
 ];
 
-// export const filterWHO = (countries) => (
-//   {
-//     code: countries.data.code,
-//     name: countries.data.name,
-//     population: countries.data.population,
-//     confirmed: countries.data.latest_data.confirmed,
-//     critical: countries.data.latest_data.critical,
-//     deaths: countries.data.latest_data.deaths,
-//     casesPerMillion: countries.data.latest_data.calculated.cases_per_million_population,
-//     deathRate: countries.data.latest_data.calculated.death_rate,
-//     timeline: countries.data.timeline.slice(0, 7),
-//   }
-// );
-
 export const filterWHO = (countries) => {
   const response = [];
   countries.data.forEach((country) => {
@@ -42,9 +28,6 @@ export const filterWHO = (countries) => {
         confirmed: country.latest_data.confirmed,
         critical: country.latest_data.critical,
         deaths: country.latest_data.deaths,
-        casesPerMillion: country.latest_data.calculated.cases_per_million_population,
-        deathRate: country.latest_data.calculated.death_rate,
-        timeline: [],
       });
     }
   });
