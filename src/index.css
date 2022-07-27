@@ -6,7 +6,7 @@
 
 body {
   color: white;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: rgb(25, 65, 134);
 }
 
@@ -15,19 +15,36 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(48, 88, 155);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 }
 
-header div:first-child {
-  width: 20%;
+a {
+  text-decoration: none;
+  color: white;
+  width: 50%;
 }
 
-header div:last-child {
+header a {
+  width: auto;
+  cursor: pointer;
+}
+
+div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+header div {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
-  width: 20%;
+  width: auto;
+}
+
+p {
+  font-size: 0.75rem;
 }
 
 header p {
@@ -38,69 +55,68 @@ main img {
   width: 50%;
 }
 
-main>section {
+main > section {
   background-color: rgb(25, 65, 134);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
-main>a>article {
+main > article {
   display: flex;
   width: 100%;
   background-color: rgb(100, 145, 224);
+  justify-content: space-between;
+  padding: 5%;
 }
 
-main>a>article>section {
+main > a > article {
+  display: flex;
+  width: 100%;
+  background-color: rgb(100, 145, 224);
+  padding: 0.5rem 1rem;
+}
+
+main > article > section {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-  width: 50%;
-}
-
-div {
+main > a > article > section {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
-div>a>article {
+div > a > article {
   position: relative;
   display: flex;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   width: 100%;
   cursor: pointer;
   justify-content: space-between;
 }
 
-div>a:nth-of-type(4n),
-div>a:nth-of-type(4n + 1) {
+div > a:nth-of-type(4n),
+div > a:nth-of-type(4n + 1) {
   background-color: rgb(67, 105, 170);
 }
 
-div>a:nth-of-type(4n + 2),
-div>a:nth-of-type(4n + 3) {
+div > a:nth-of-type(4n + 2),
+div > a:nth-of-type(4n + 3) {
   background-color: rgba(48, 88, 155);
 }
 
-div>a>article>section {
+div > a > article > section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-align: right;
 }
 
-p {
-  font-size: 0.75rem;
-}
-
 article i {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1rem;
 }
 
 h2 {
@@ -109,7 +125,6 @@ h2 {
 }
 
 h3 {
-  padding-left: 1rem;
   font-size: 0.8rem;
 }
 
@@ -119,38 +134,8 @@ article h2 {
   font-weight: 700;
 }
 
-h3 {
-  padding-left: 1rem;
-  font-size: 0.8rem;
-}
-
-main>article {
-  display: flex;
-  width: 100%;
-  background-color: rgb(100, 145, 224);
-  justify-content: space-between;
-  padding: 5%;
-}
-
-main>article>section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-main>article>img {
+main > article > img {
   width: 50%;
-}
-
-main>section {
-  background-color: rgb(25, 65, 134);
-  padding: 0.5rem;
-}
-
-div {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
 }
 
 .statistics {
@@ -182,13 +167,13 @@ div {
   background-color: rgb(100, 145, 224);
 }
 
-.population div:first-child {
-  width: 40%;
-}
-
 .critical div {
   width: 50%;
   padding: 2rem 0 2rem 15%;
+}
+
+.population div:first-child {
+  width: 40%;
 }
 
 .critical div:first-child {
@@ -211,7 +196,7 @@ div {
   font-size: 1rem;
 }
 
-#root>h2 {
+#root > h2 {
   margin: auto;
   padding: 5rem;
   font-size: 3rem;
