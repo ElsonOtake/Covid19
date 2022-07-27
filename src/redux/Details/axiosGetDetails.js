@@ -11,8 +11,8 @@ export const filterDetails = (country) => (
     deaths: country.data.latest_data.deaths,
     casesPerMillion: country.data.latest_data.calculated.cases_per_million_population,
     deathRate: country.data.latest_data.calculated.death_rate,
-    timeline: country.data.timeline.slice(0, 7).map((info) => ({
-      date: info.date,
+    timeline: country.data.timeline.slice(0, 7).reverse().map((info) => ({
+      date: info.date.slice(-2),
       newConfirmed: info.new_confirmed,
       newDeaths: info.new_deaths,
     })),
