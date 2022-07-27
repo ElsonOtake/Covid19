@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWHO } from '../redux/Home/Home';
 import Article from './Article';
-import Header from './Header';
 import './Home.css';
 
 const Home = () => {
@@ -18,41 +17,37 @@ const Home = () => {
   const getSumConfirmed = (total, country) => total + country.confirmed;
 
   return (
-    <>
-      <Header />
-      <main>
+    <main>
+      {
+        covid19Data.length > 0 && (
+          <Article
+            code="S_A"
+            name="South America"
+            confirmed={covid19Data.reduce(getSumConfirmed, 0)}
+          />
+        )
+      }
+      <section>
+        <h3>STATS BY COUNTRY</h3>
+      </section>
+      <div>
         {
-          covid19Data.length > 0 && (
-            <Article
-              code="S_A"
-              name="South America"
-              confirmed={covid19Data.reduce(getSumConfirmed, 0)}
-            />
-          )
+          covid19Data.length > 0 && covid19Data.map((country) => {
+            if (country.code !== 'S_A') {
+              return (
+                <Article
+                  key={country.code}
+                  code={country.code}
+                  name={country.name}
+                  confirmed={country.confirmed}
+                />
+              );
+            }
+            return null;
+          })
         }
-        <section>
-          <h3>STATS BY COUNTRY</h3>
-        </section>
-        <div>
-          {
-            covid19Data.length > 0 && covid19Data.map((country) => {
-              if (country.code !== 'S_A') {
-                return (
-                  <Article
-                    key={country.code}
-                    code={country.code}
-                    name={country.name}
-                    confirmed={country.confirmed}
-                  />
-                );
-              }
-              return null;
-            })
-          }
-        </div>
-      </main>
-    </>
-
+      </div>
+    </main>
   );
 };
 

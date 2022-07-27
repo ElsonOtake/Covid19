@@ -5,7 +5,6 @@ import {
   LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, PieChart, Pie, Cell,
 } from 'recharts';
 import { fetchDetails } from '../redux/Details/Details';
-import Header from './Header';
 import './Details.css';
 import S_A from '../images/S_A.png';
 import AR from '../images/AR.png';
@@ -166,7 +165,6 @@ const Details = () => {
 
   return (
     <>
-      <Header />
       {
         detailsData.code === code ? (
           <main>
