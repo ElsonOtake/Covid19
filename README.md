@@ -1,6 +1,6 @@
 # WHO Covid19
 
->"WHO Covid19" is a web application for 
+>WHO Covid19 is a web application for presenting numerical data regarding the covid-19 pandemic in South America. The used API provides statistics via REST API from The World Health Organization Situation Reports, Johns Hopkins CSSE, The U.S. Department of Health & Human Services, The National Health Commission of the People’s Republic of China, The European Centre for Disease Prevention and Control, and China CDC Weekly. This API retrieves data by country, including population, the number of the virus confirmed, recovered, critical cases, deaths, recovered per death ratio, cases per million population, and more. The data is updated multiple times a day.
 
 
 ## Built With
@@ -81,6 +81,7 @@ Give a ⭐️ if you like this project!
 - Microverse
 - W3Schools
 - Stack Overflow
+- [About-Corona.Net](https://about-corona.net/)
 - [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 - [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/)
 
