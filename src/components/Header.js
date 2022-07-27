@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => (
   <header>
-    <div>
+    <Link to="/">
       <i className="fa-solid fa-earth-americas" />
-    </div>
+    </Link>
     <p>Covid19 in South America</p>
     <div>
       <i className="fa-solid fa-microphone" />
