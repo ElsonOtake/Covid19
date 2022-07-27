@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchDetails } from '../redux/Details/Details';
 import Header from './Header';
+import './Details.css';
 import S_A from '../images/S_A.png';
 import AR from '../images/AR.png';
 import BO from '../images/BO.png';
@@ -23,7 +24,6 @@ const Details = () => {
   const dispatch = useDispatch();
   const { code } = useParams();
 
-  // const imgSrc = '';
   let imgSrc;
   switch (code) {
     case 'AR':
@@ -129,7 +129,7 @@ const Details = () => {
           </main>
         )
           : (
-            <h2>Data not found</h2>
+            <h2>Loading data</h2>
           )
       }
     </>

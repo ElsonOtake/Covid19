@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+  background-color: rgb(25, 65, 134);
+}
+
+header {
+  text-align: center;
+  background-color: rgba(48, 88, 155);
+  padding: 0.5rem;
+  width: 100%;
+}
+
+header p {
+  font-size: 0.75rem;
+}
+
+article h2 {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+
+main>article {
+  display: flex;
+  width: 100%;
+  background-color: rgb(100, 145, 224);
+  justify-content: space-between;
+  padding: 5%;
+}
+
+main>article>section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main>article>img {
+  width: 50%;
+}
+
+main>section {
+  background-color: rgb(25, 65, 134);
+  padding: 0.5rem;
+}
+
+div {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.statistics {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.population,
+.critical {
+  display: flex;
+}
+
+.population {
+  background-color: rgb(100, 145, 224);
+  justify-content: space-around;
+}
+
+.population div,
+.critical div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.population div {
+  width: 30%;
+  padding: 2rem 0 2rem 5%;
+  background-color: rgb(100, 145, 224);
+}
+
+.population div:first-child {
+  width: 40%;
+}
+
+.critical div {
+  width: 50%;
+  padding: 2rem 0 2rem 15%;
+}
+
+.critical div:first-child {
+  background-color: rgb(67, 105, 170);
+}
+
+.critical div:last-child {
+  background-color: rgba(48, 88, 155);
+}
+
+.number {
+  font-size: 1.5rem;
+}
+
+.text {
+  font-size: 1rem;
+}
+
+.confirmed {
+  font-size: 1rem;
+}
