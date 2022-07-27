@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchWHO } from '../redux/Home/Home';
 import Article from './Article';
 import Header from './Header';
+import './Home.css';
 
 const Home = () => {
   const covid19Data = useSelector((state) => state.covid19Reducer);
