@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import {
+  LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,
+} from 'recharts';
 import { fetchDetails } from '../redux/Details/Details';
 import Header from './Header';
 import './Details.css';
@@ -81,7 +84,7 @@ const Details = () => {
     deathRate,
     casesPerMillion,
     deaths,
-    // timeline,
+    timeline,
   } = detailsData;
 
   return (
@@ -125,6 +128,42 @@ const Details = () => {
                   <p className="text">deaths</p>
                 </div>
               </div>
+            </section>
+            <section className="line">
+              <section className="lineDeaths">
+                <h4>Deaths</h4>
+                <LineChart
+                  width={300}
+                  height={150}
+                  data={timeline}
+                  margin={{
+                    top: 5, right: 20, bottom: 5, left: 20,
+                  }}
+                >
+                  <Line dataKey="newDeaths" stroke="#ffff00" dot={false} strokeWidth={3} />
+                  <CartesianGrid stroke="#fff" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: 'transparent' }} />
+                </LineChart>
+              </section>
+              <section className="lineConfirmed">
+                <h4>Confirmed</h4>
+                <LineChart
+                  width={300}
+                  height={150}
+                  data={timeline}
+                  margin={{
+                    top: 5, right: 20, bottom: 5, left: 20,
+                  }}
+                >
+                  <Line dataKey="newConfirmed" stroke="#ffff00" dot={false} strokeWidth={3} />
+                  <CartesianGrid stroke="#fff" />
+                  <XAxis dataKey="date" stroke="#fff" />
+                  <YAxis stroke="#fff" />
+                  <Tooltip contentStyle={{ backgroundColor: 'transparent' }} />
+                </LineChart>
+              </section>
             </section>
           </main>
         )
