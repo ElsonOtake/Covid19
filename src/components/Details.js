@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import {
-  PieChart, Pie, Cell,
-} from 'recharts';
 import { fetchDetails } from '../redux/Details/Details';
 import S_A from '../images/S_A.png';
 import AR from '../images/AR.png';
@@ -20,6 +17,7 @@ import SR from '../images/SR.png';
 import UY from '../images/UY.png';
 import VE from '../images/VE.png';
 import LineCountry from '../charts/LineCountry';
+import PieCountry from '../charts/PieCountry';
 
 const Details = () => {
   const detailsData = useSelector((state) => state.detailsReducer);
@@ -97,62 +95,6 @@ const Details = () => {
   const criticalSouthAmerica = covid19Data.reduce(getCritical, 0);
   const deathsSouthAmerica = covid19Data.reduce(getDeaths, 0);
 
-  const piePopulationData = [
-    { name, value: population },
-    { name: 'Others', value: populationSouthAmerica - population },
-  ];
-
-  const pieConfirmedData = [
-    { name, value: confirmed },
-    { name: 'Others', value: confirmedSouthAmerica - confirmed },
-  ];
-
-  const pieCriticalData = [
-    { name, value: critical },
-    { name: 'Others', value: criticalSouthAmerica - critical },
-  ];
-
-  const pieDeathsData = [
-    { name, value: deaths },
-    { name: 'Others', value: deathsSouthAmerica - deaths },
-  ];
-
-  const COLORS = ['#21618C', '#2E86C1'];
-
-  const textPerc = (perc, cx, cy) => (
-    <text x={cx} y={cy} dy={8} textAnchor="middle" fontSize={25} fill="#ffff00">
-      {`${parseFloat(perc).toFixed(0)}%`}
-    </text>
-  );
-
-  const renderCustomizedLabelPopulation = ({ cx, cy }) => {
-    const perc = 100 * (piePopulationData[0].value
-      / (piePopulationData[0].value + piePopulationData[1].value));
-
-    return textPerc(perc, cx, cy);
-  };
-
-  const renderCustomizedLabelConfirmed = ({ cx, cy }) => {
-    const perc = 100 * (pieConfirmedData[0].value
-      / (pieConfirmedData[0].value + pieConfirmedData[1].value));
-
-    return textPerc(perc, cx, cy);
-  };
-
-  const renderCustomizedLabelCritical = ({ cx, cy }) => {
-    const perc = 100 * (pieCriticalData[0].value
-      / (pieCriticalData[0].value + pieCriticalData[1].value));
-
-    return textPerc(perc, cx, cy);
-  };
-
-  const renderCustomizedLabelDeaths = ({ cx, cy }) => {
-    const perc = 100 * (pieDeathsData[0].value
-      / (pieDeathsData[0].value + pieDeathsData[1].value));
-
-    return textPerc(perc, cx, cy);
-  };
-
   return (
     <>
       {
@@ -200,74 +142,26 @@ const Details = () => {
             </section>
             <h5>South America</h5>
             <div className="pie">
-              <section className="pieChart">
-                <PieChart width={200} height={200}>
-                  <Pie
-                    data={piePopulationData}
-                    startAngle={-270}
-                    labelLine={false}
-                    label={renderCustomizedLabelPopulation}
-                    outerRadius={60}
-                    dataKey="value"
-                  >
-                    {piePopulationData.map((entry, index) => (
-                      <Cell key={entry.name} fill={COLORS[index]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <h4>Population</h4>
-              </section>
-              <section className="pieChart">
-                <PieChart width={200} height={200}>
-                  <Pie
-                    data={pieConfirmedData}
-                    startAngle={-270}
-                    labelLine={false}
-                    label={renderCustomizedLabelConfirmed}
-                    outerRadius={60}
-                    dataKey="value"
-                  >
-                    {pieConfirmedData.map((entry, index) => (
-                      <Cell key={entry.name} fill={COLORS[index]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <h4>Confirmed</h4>
-              </section>
-              <section className="pieChart">
-                <PieChart width={200} height={200}>
-                  <Pie
-                    data={pieCriticalData}
-                    startAngle={-270}
-                    labelLine={false}
-                    label={renderCustomizedLabelCritical}
-                    outerRadius={60}
-                    dataKey="value"
-                  >
-                    {pieCriticalData.map((entry, index) => (
-                      <Cell key={entry.name} fill={COLORS[index]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <h4>Critical</h4>
-              </section>
-              <section className="pieChart">
-                <PieChart width={200} height={200}>
-                  <Pie
-                    data={pieDeathsData}
-                    startAngle={-270}
-                    labelLine={false}
-                    label={renderCustomizedLabelDeaths}
-                    outerRadius={60}
-                    dataKey="value"
-                  >
-                    {pieDeathsData.map((entry, index) => (
-                      <Cell key={entry.name} fill={COLORS[index]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-                <h4>Deaths</h4>
-              </section>
+              <PieCountry
+                title="Population"
+                country={population}
+                continent={populationSouthAmerica}
+              />
+              <PieCountry
+                title="Confirmed"
+                country={confirmed}
+                continent={confirmedSouthAmerica}
+              />
+              <PieCountry
+                title="Critical"
+                country={critical}
+                continent={criticalSouthAmerica}
+              />
+              <PieCountry
+                title="Deaths"
+                country={deaths}
+                continent={deathsSouthAmerica}
+              />
             </div>
           </main>
         )
