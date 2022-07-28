@@ -99,7 +99,7 @@ const Details = () => {
     <>
       {
         detailsData.code === code ? (
-          <main>
+          <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
               <section>
