@@ -43,10 +43,15 @@ const PieCountry = (props) => {
   );
 };
 
+PieCountry.defaultProps = {
+  country: 0,
+  continent: 100,
+};
+
 PieCountry.propTypes = {
   title: PropTypes.string.isRequired,
-  country: PropTypes.number.isRequired,
-  continent: PropTypes.number.isRequired,
+  country: PropTypes.number,
+  continent: PropTypes.number,
 };
 
 export default PieCountry;
