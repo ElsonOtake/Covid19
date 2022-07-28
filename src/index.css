@@ -59,7 +59,24 @@ main img {
   width: 100%;
 }
 
-.mainHome > section,
+main > article > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mainHome > section {
+  background-color: rgb(25, 65, 134);
+}
+
+.mainHome > div > a > article > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
+}
+
 .mainDetails > section:first-child {
   background-color: rgb(25, 65, 134);
 }
@@ -76,13 +93,6 @@ main > article {
   background-color: rgb(100, 145, 224);
   justify-content: space-between;
   padding: 5%;
-}
-
-main > article > section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
 }
 
 .mainHome > div > a > article {
@@ -102,13 +112,6 @@ main > article > section {
 .mainHome > div > a:nth-of-type(4n + 2),
 .mainHome > div > a:nth-of-type(4n + 3) {
   background-color: rgba(48, 88, 155);
-}
-
-.mainHome > div > a > article > section {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  text-align: right;
 }
 
 article i {
