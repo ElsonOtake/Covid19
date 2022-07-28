@@ -32,10 +32,19 @@ const timelineShape = {
   newDeaths: PropTypes.number,
 };
 
+LineCountry.defaultProps = {
+  keyData: 'newConfirmed',
+  source: [{
+    name: '01',
+    newConfirmed: 0,
+    newDeaths: 0,
+  }],
+};
+
 LineCountry.propTypes = {
   title: PropTypes.string.isRequired,
-  keyData: PropTypes.string.isRequired,
-  source: PropTypes.objectOf(PropTypes.shape(timelineShape)).isRequired,
+  keyData: PropTypes.string,
+  source: PropTypes.arrayOf(PropTypes.shape(timelineShape)),
 };
 
 export default LineCountry;
