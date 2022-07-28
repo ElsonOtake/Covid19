@@ -55,9 +55,19 @@ main img {
   width: 50%;
 }
 
-main > section {
+.mainDetails {
+  width: 100%;
+}
+
+.mainHome > section,
+.mainDetails > section:first-child {
   background-color: rgb(25, 65, 134);
+}
+
+.mainHome > section > h3,
+.mainDetails > section > h3 {
   padding: 0.5rem 1rem;
+  font-size: 0.8rem;
 }
 
 main > article {
@@ -68,26 +78,14 @@ main > article {
   padding: 5%;
 }
 
-main > a > article {
-  display: flex;
-  width: 100%;
-  background-color: rgb(100, 145, 224);
-  padding: 0.5rem 1rem;
-}
-
 main > article > section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
 }
 
-main > a > article > section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-div > a > article {
+.mainHome > div > a > article {
   position: relative;
   display: flex;
   padding: 0.5rem 1rem;
@@ -96,17 +94,17 @@ div > a > article {
   justify-content: space-between;
 }
 
-div > a:nth-of-type(4n),
-div > a:nth-of-type(4n + 1) {
+.mainHome > div > a:nth-of-type(4n),
+.mainHome > div > a:nth-of-type(4n + 1) {
   background-color: rgb(67, 105, 170);
 }
 
-div > a:nth-of-type(4n + 2),
-div > a:nth-of-type(4n + 3) {
+.mainHome > div > a:nth-of-type(4n + 2),
+.mainHome > div > a:nth-of-type(4n + 3) {
   background-color: rgba(48, 88, 155);
 }
 
-div > a > article > section {
+.mainHome > div > a > article > section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -124,18 +122,10 @@ h2 {
   font-size: 0.8rem;
 }
 
-h3 {
-  font-size: 0.8rem;
-}
-
 article h2 {
   font-size: 1rem;
   padding-bottom: 0.5rem;
   font-weight: 700;
-}
-
-main > article > img {
-  width: 50%;
 }
 
 .statistics {
