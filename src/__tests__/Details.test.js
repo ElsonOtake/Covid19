@@ -12,7 +12,16 @@ describe('Tests for the Details component', () => {
     </Provider>
   );
   test('Check for the following test on screen', () => {
+    expect(screen.getByText('COUNTRY STATS')).toBeInTheDocument();
+
     expect(screen.getByRole('article')).toBeInTheDocument();
+    expect(screen.getByRole('article')).toBeVisible();
     expect(screen.getByRole('img')).toBeInTheDocument();
+    expect(screen.getByRole('img')).toBeVisible();
+
+    expect(screen.getAllByRole('heading').length).toBe(9);
+  });
+  test('Check for the snapshot', () => {
+    expect(screen.debug()).toMatchSnapshot();
   });
 });
