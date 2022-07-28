@@ -15,7 +15,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo (Netlify)](https://elsonotake-who-covid19.netlify.app)
+[Project Video](https://www.loom.com/share/5191b4804ec64ff9a87d1a4f6e43bfb9)
 
 [Live Demo (Heroku)](https://elsonotake-who-covid19.herokuapp.com/)
 
