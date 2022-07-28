@@ -15,7 +15,7 @@
 
 ## Live Demo (if available)
 
-[Project Video](https://www.loom.com/share/5191b4804ec64ff9a87d1a4f6e43bfb9)
+[Project Video](https://www.loom.com/share/c30711a8f5e74e9298f9869a61d1313a)
 
 [Live Demo (Heroku)](https://elsonotake-who-covid19.herokuapp.com/)
 
