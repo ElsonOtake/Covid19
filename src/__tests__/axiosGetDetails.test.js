@@ -12,7 +12,7 @@ const covidData = {
         death_rate: 2.7837054080493573,
         recovery_rate: 95.30557939527795,
         recovered_vs_death_ratio: null,
-        cases_per_million_population: 8318
+        cases_per_million_population: 8318,
       },
     },
     confirmed: 21327616,
@@ -139,7 +139,6 @@ const covidData = {
 };
 
 describe('Test the filterDetails function', () => {
-
   test('code of the input object', () => {
     expect(covidData.data.code).toBe('BR');
   });

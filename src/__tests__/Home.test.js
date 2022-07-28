@@ -13,7 +13,7 @@ describe('Tests for the Home component', () => {
   );
   test('Check for the following test on screen', () => {
     expect(screen.getByText('STATS BY COUNTRY')).toBeInTheDocument();
-    
+
     expect(screen.getByRole('main')).toBeInTheDocument();
     expect(screen.getByRole('main')).toBeVisible();
     expect(screen.getByRole('heading')).toBeInTheDocument();

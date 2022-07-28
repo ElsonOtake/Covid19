@@ -82,7 +82,6 @@ const covidData = {
 };
 
 describe('Test the filterWHO function', () => {
-
   test('size of the input object', () => {
     expect(covidData.data.length).toBe(3);
   });
@@ -123,4 +122,3 @@ describe('Test the filterWHO function', () => {
     expect(filterWHO(covidData)[1].critical).toBe(1473);
   });
 });
-  
