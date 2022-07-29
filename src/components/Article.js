@@ -62,59 +62,42 @@ const Article = ({ code, name, confirmed }) => {
       imgSrc = S_A;
   }
 
+  const DetailsArticle = () => (
+    <article>
+      <img src={imgSrc} alt={`${name} map`} />
+      <section>
+        <h2>{name}</h2>
+        {
+          name === 'South America'
+            ? (
+              <p>
+                {`${confirmed.toLocaleString()} Confirmed`}
+              </p>
+            )
+            : (
+              <p>
+                {confirmed.toLocaleString()}
+              </p>
+            )
+        }
+      </section>
+      {
+        name !== 'South America' && <i className="fa-solid fa-circle-arrow-right" />
+      }
+    </article>
+  );
+
   return (
     <>
       {
         code !== 'S_A'
           ? (
             <Link to={`details/${code}`}>
-              <article>
-                <img src={imgSrc} alt={`${name} map`} />
-                <section>
-                  <h2>{name}</h2>
-                  {
-                    name === 'South America'
-                      ? (
-                        <p>
-                          {`${confirmed.toLocaleString()} Confirmed`}
-                        </p>
-                      )
-                      : (
-                        <p>
-                          {confirmed.toLocaleString()}
-                        </p>
-                      )
-                  }
-                </section>
-                {
-                  name !== 'South America' && <i className="fa-solid fa-circle-arrow-right" />
-                }
-              </article>
+              <DetailsArticle />
             </Link>
           )
           : (
-            <article>
-              <img src={imgSrc} alt={`${name} map`} />
-              <section>
-                <h2>{name}</h2>
-                {
-                  name === 'South America'
-                    ? (
-                      <p>
-                        {`${confirmed.toLocaleString()} Confirmed`}
-                      </p>
-                    )
-                    : (
-                      <p>
-                        {confirmed.toLocaleString()}
-                      </p>
-                    )
-                }
-              </section>
-              {
-                name !== 'South America' && <i className="fa-solid fa-circle-arrow-right" />
-              }
-            </article>
+            <DetailsArticle />
           )
       }
     </>
