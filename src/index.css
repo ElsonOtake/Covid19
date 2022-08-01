@@ -155,7 +155,7 @@ article h2 {
 }
 
 .population div {
-  width: 30%;
+  /* width: 25%; */
   padding: 2rem 0 2rem 5%;
   background-color: rgb(100, 145, 224);
 }
@@ -166,7 +166,15 @@ article h2 {
 }
 
 .population div:first-child {
-  width: 40%;
+  width: 45%;
+}
+
+.population div:nth-child(2) {
+  width: 30%;
+}
+
+.population div:last-child {
+  width: 25%;
 }
 
 .critical div:first-child {
