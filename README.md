@@ -19,6 +19,8 @@
 
 [Live Demo (Heroku)](https://elsonotake-who-covid19.herokuapp.com/)
 
+[Live Demo (Netlify)](https://elsonotake-who-covid19.netlify.app)
+
 
 ## Getting Started
 
