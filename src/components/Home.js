@@ -21,6 +21,7 @@ const Home = () => {
         covid19Data.length > 0 && (
           <Article
             code="S_A"
+            slug="south-america"
             name="South America"
             confirmed={covid19Data.reduce(getSumConfirmed, 0)}
           />
@@ -37,6 +38,7 @@ const Home = () => {
                 <Article
                   key={country.code}
                   code={country.code}
+                  slug={country.slug}
                   name={country.name}
                   confirmed={country.confirmed}
                 />
