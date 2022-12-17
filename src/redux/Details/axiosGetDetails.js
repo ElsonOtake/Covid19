@@ -6,7 +6,7 @@ export const filterDetails = (data) => {
   let date;
   let newConfirmed;
   let newDeaths;
-  let Active;
+  let active;
   let auxConfirmed;
   let auxDeaths;
   data.slice(-8).forEach((info) => {
@@ -19,9 +19,9 @@ export const filterDetails = (data) => {
       auxConfirmed = info.Confirmed;
       newDeaths = info.Deaths - auxDeaths;
       auxDeaths = info.Deaths;
-      Active = info.Active;
+      active = info.Active;
       timeline.push({
-        date, newConfirmed, newDeaths, Active,
+        date, newConfirmed, newDeaths, active,
       });
     }
   });
@@ -29,6 +29,8 @@ export const filterDetails = (data) => {
     {
       name: data.slice(-1)[0].Country,
       active: data.slice(-1)[0].Active,
+      confirmed: data.slice(-1)[0].Confirmed,
+      deaths: data.slice(-1)[0].Deaths,
       timeline,
     }
   );
