@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axiosGetWHO from './axiosGetWHO';
+import axiosGetHome from './axiosGetHome';
 
-const FETCH = 'who-covid19/home/FETCH';
+const FETCH = 'covid19/home/FETCH';
 
-const covid19Reducer = (state = [], action) => {
+const homeReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH:
       return action.payload;
@@ -12,10 +12,10 @@ const covid19Reducer = (state = [], action) => {
   }
 };
 
-export const fetchWHO = createAsyncThunk(
+export const fetchCovid19 = createAsyncThunk(
   FETCH,
   async (_, { dispatch }) => {
-    const res = await axiosGetWHO()
+    const res = await axiosGetHome()
       .then(
         (data) => dispatch({
           type: FETCH,
@@ -26,4 +26,4 @@ export const fetchWHO = createAsyncThunk(
   },
 );
 
-export default covid19Reducer;
+export default homeReducer;
