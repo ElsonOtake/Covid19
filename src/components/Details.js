@@ -21,49 +21,49 @@ import PieCountry from '../charts/PieCountry';
 
 const Details = () => {
   const detailsData = useSelector((state) => state.detailsReducer);
-  const covid19Data = useSelector((state) => state.covid19Reducer);
+  const homeData = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
-  const { code } = useParams();
+  const { slug } = useParams();
 
   let imgSrc;
-  switch (code) {
-    case 'AR':
+  switch (slug) {
+    case 'argentina':
       imgSrc = AR;
       break;
-    case 'BO':
+    case 'bolivia':
       imgSrc = BO;
       break;
-    case 'BR':
+    case 'brazil':
       imgSrc = BR;
       break;
-    case 'CL':
+    case 'chile':
       imgSrc = CL;
       break;
-    case 'CO':
+    case 'colombia':
       imgSrc = CO;
       break;
-    case 'EC':
+    case 'ecuador':
       imgSrc = EC;
       break;
-    case 'GF':
+    case 'french-guiana':
       imgSrc = GF;
       break;
-    case 'GY':
+    case 'guyana':
       imgSrc = GY;
       break;
-    case 'PE':
+    case 'peru':
       imgSrc = PE;
       break;
-    case 'PY':
+    case 'paraguay':
       imgSrc = PY;
       break;
-    case 'SR':
+    case 'suriname':
       imgSrc = SR;
       break;
-    case 'UY':
+    case 'uruguay':
       imgSrc = UY;
       break;
-    case 'VE':
+    case 'venezuela':
       imgSrc = VE;
       break;
     default:
@@ -71,34 +71,45 @@ const Details = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchDetails(code));
+    dispatch(fetchDetails(slug));
   }, []);
 
   const {
     name,
-    population,
-    confirmed,
-    critical,
-    deathRate,
-    casesPerMillion,
-    deaths,
+    // population,
+    // confirmed,
+    active,
+    // deathRate,
+    // casesPerMillion,
+    // deaths,
     timeline,
   } = detailsData;
 
-  const getPopulation = (total, country) => total + country.population;
+  const {
+    // name,
+    // population,
+    confirmed,
+    // active,
+    // deathRate,
+    // casesPerMillion,
+    deaths,
+    // timeline,
+  } = homeData;
+
+  // const getPopulation = (total, country) => total + country.population;
   const getConfirmed = (total, country) => total + country.confirmed;
-  const getCritical = (total, country) => total + country.critical;
+  const getactive = (total, country) => total + country.active;
   const getDeaths = (total, country) => total + country.deaths;
 
-  const populationSouthAmerica = covid19Data.reduce(getPopulation, 0);
-  const confirmedSouthAmerica = covid19Data.reduce(getConfirmed, 0);
-  const criticalSouthAmerica = covid19Data.reduce(getCritical, 0);
-  const deathsSouthAmerica = covid19Data.reduce(getDeaths, 0);
+  // const populationSouthAmerica = homeData.reduce(getPopulation, 0);
+  const confirmedSouthAmerica = homeData.reduce(getConfirmed, 0);
+  const activeSouthAmerica = homeData.reduce(getactive, 0);
+  const deathsSouthAmerica = homeData.reduce(getDeaths, 0);
 
   return (
     <>
       {
-        detailsData.code === code ? (
+        detailsData.slug === slug ? (
           <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
@@ -111,7 +122,7 @@ const Details = () => {
               <h3>COUNTRY STATS</h3>
             </section>
             <section className="statistics">
-              <div className="population">
+              {/* <div className="population">
                 <div>
                   <p className="number">{population?.toLocaleString() || 0}</p>
                   <p className="text">population</p>
@@ -124,11 +135,11 @@ const Details = () => {
                   <p className="number">{deathRate?.toFixed(2) || 0}</p>
                   <p className="text">death rate</p>
                 </div>
-              </div>
-              <div className="critical">
+              </div> */}
+              <div className="active">
                 <div>
-                  <p className="number">{critical?.toLocaleString() || 0}</p>
-                  <p className="text">critical</p>
+                  <p className="number">{active?.toLocaleString() || 0}</p>
+                  <p className="text">active</p>
                 </div>
                 <div>
                   <p className="number">{deaths?.toLocaleString() || 0}</p>
@@ -142,20 +153,20 @@ const Details = () => {
             </section>
             <h5>South America</h5>
             <div className="pie">
-              <PieCountry
+              {/* <PieCountry
                 title="Population"
                 country={population}
                 continent={populationSouthAmerica}
-              />
+              /> */}
               <PieCountry
                 title="Confirmed"
                 country={confirmed}
                 continent={confirmedSouthAmerica}
               />
               <PieCountry
-                title="Critical"
-                country={critical}
-                continent={criticalSouthAmerica}
+                title="active"
+                country={active}
+                continent={activeSouthAmerica}
               />
               <PieCountry
                 title="Deaths"
