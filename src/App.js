@@ -11,7 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/details/:code" element={<Details />} />
+          <Route path="/details/:slug" element={<Details />} />
         </Routes>
       </Router>
     </React.StrictMode>
