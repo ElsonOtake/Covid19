@@ -17,7 +17,12 @@ import VE from '../images/VE.png';
 
 let imgSrc;
 
-const Article = ({ code, name, confirmed }) => {
+const Article = ({
+  code,
+  slug,
+  name,
+  confirmed,
+}) => {
   switch (code) {
     case 'AR':
       imgSrc = AR;
@@ -92,7 +97,7 @@ const Article = ({ code, name, confirmed }) => {
       {
         code !== 'S_A'
           ? (
-            <Link to={`details/${code}`}>
+            <Link to={`details/${slug}`}>
               <DetailsArticle />
             </Link>
           )
@@ -106,12 +111,14 @@ const Article = ({ code, name, confirmed }) => {
 
 Article.defaultProps = {
   code: '',
+  slug: '',
   name: '',
   confirmed: 0,
 };
 
 Article.propTypes = {
   code: PropTypes.string,
+  slug: PropTypes.string,
   name: PropTypes.string,
   confirmed: PropTypes.number,
 };
