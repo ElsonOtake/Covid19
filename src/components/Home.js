@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchWHO } from '../redux/Home/Home';
+import { fetchCovid19 } from '../redux/Home/Home';
 import Article from './Article';
 
 const Home = () => {
-  const covid19Data = useSelector((state) => state.covid19Reducer);
+  const covid19Data = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (covid19Data.length === 0) {
-      dispatch(fetchWHO());
+      dispatch(fetchCovid19());
     }
   }, [covid19Data.length]);
 
