@@ -1,27 +1,45 @@
 import axios from 'axios';
-import urlWHO from '../Global';
+import urlCovid19 from '../Global';
 
-export const filterDetails = (country) => (
-  {
-    code: country.data.code,
-    name: country.data.name,
-    population: country.data.population,
-    confirmed: country.data.latest_data.confirmed,
-    critical: country.data.latest_data.critical,
-    deaths: country.data.latest_data.deaths,
-    casesPerMillion: country.data.latest_data.calculated.cases_per_million_population,
-    deathRate: country.data.latest_data.calculated.death_rate,
-    timeline: country.data.timeline.slice(0, 7).reverse().map((info) => ({
-      date: info.date.slice(-2),
-      newConfirmed: info.new_confirmed,
-      newDeaths: info.new_deaths,
-    })),
-  }
-);
+export const filterDetails = (data) => {
+  const timeline = [];
+  let date;
+  let newConfirmed;
+  let newDeaths;
+  let Active;
+  let auxConfirmed;
+  let auxDeaths;
+  data.slice(-8).forEach((info) => {
+    if (auxConfirmed == null) {
+      auxConfirmed = info.Confirmed;
+      auxDeaths = info.Deaths;
+    } else {
+      date = info.Date.substr(8, 2);
+      newConfirmed = info.Confirmed - auxConfirmed;
+      auxConfirmed = info.Confirmed;
+      newDeaths = info.Deaths - auxDeaths;
+      auxDeaths = info.Deaths;
+      Active = info.Active;
+      timeline.push({
+        date, newConfirmed, newDeaths, Active,
+      });
+    }
+  });
+  return (
+    {
+      name: data.slice(-1)[0].Country,
+      active: data.slice(-1)[0].Active,
+      timeline,
+    }
+  );
+};
 
-const axiosGetDetails = async (code) => {
+const today = new Date().toJSON().slice(0, 10);
+const lastWeek = new Date(new Date().getTime() - (10 * 24 * 60 * 60 * 1000)).toJSON().slice(0, 10);
+
+const axiosGetDetails = async (slug) => {
   try {
-    const response = await axios.get(`${urlWHO}/${code}`);
+    const response = await axios.get(`${urlCovid19}total/country/${slug}?from=${lastWeek}&to=${today}`);
     return filterDetails(response.data);
   } catch (error) {
     throw new Error(error);
