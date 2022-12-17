@@ -1,4 +1,4 @@
-import { filterWHO } from '../redux/Home/axiosGetWHO';
+import { filterCovid19 } from '../redux/Home/axiosGetHome';
 
 const covidData = {
   data: [{
@@ -81,13 +81,13 @@ const covidData = {
   }],
 };
 
-describe('Test the filterWHO function', () => {
+describe('Test the filterCovid19 function', () => {
   test('size of the input object', () => {
     expect(covidData.data.length).toBe(3);
   });
 
   test('size of the output object', () => {
-    expect(filterWHO(covidData).length).toBe(2);
+    expect(filterCovid19(covidData).length).toBe(2);
   });
 
   test('code of the input object', () => {
@@ -95,7 +95,7 @@ describe('Test the filterWHO function', () => {
   });
 
   test('code of the output object', () => {
-    expect(filterWHO(covidData)[0].code).toBe('AR');
+    expect(filterCovid19(covidData)[0].code).toBe('AR');
   });
 
   test('name of the input object outside South America', () => {
@@ -103,7 +103,7 @@ describe('Test the filterWHO function', () => {
   });
 
   test('name of the output object South America filtered', () => {
-    expect(filterWHO(covidData)[1].name).toBe('Uruguay');
+    expect(filterCovid19(covidData)[1].name).toBe('Uruguay');
   });
 
   test('today of the input object', () => {
@@ -111,7 +111,7 @@ describe('Test the filterWHO function', () => {
   });
 
   test('today of the output object', () => {
-    expect(filterWHO(covidData)[0].today).toBeUndefined();
+    expect(filterCovid19(covidData)[0].today).toBeUndefined();
   });
 
   test('critical of the third input object', () => {
@@ -119,6 +119,6 @@ describe('Test the filterWHO function', () => {
   });
 
   test('critical of the second output object', () => {
-    expect(filterWHO(covidData)[1].critical).toBe(1473);
+    expect(filterCovid19(covidData)[1].critical).toBe(1473);
   });
 });
