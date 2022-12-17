@@ -27,59 +27,74 @@ const Details = () => {
 
   let imgSrc;
   let country;
+  let population;
+  const populationSouthAmerica = 439477929;
 
   switch (slug) {
     case 'argentina':
       imgSrc = AR;
       country = 'Argentina';
+      population = 45199254;
       break;
     case 'bolivia':
       imgSrc = BO;
       country = 'Bolivia';
+      population = 11673021;
       break;
     case 'brazil':
       imgSrc = BR;
       country = 'Brazil';
+      population = 212559417;
       break;
     case 'chile':
       imgSrc = CL;
       country = 'Chile';
+      population = 19116201;
       break;
     case 'colombia':
       imgSrc = CO;
       country = 'Colombia';
+      population = 50882891;
       break;
     case 'ecuador':
       imgSrc = EC;
       country = 'Ecuador';
+      population = 17643054;
       break;
     case 'french-guiana':
       imgSrc = GF;
       country = 'French Guiana';
+      population = 298682;
       break;
     case 'guyana':
       imgSrc = GY;
       country = 'Guyana';
+      population = 786552;
       break;
     case 'peru':
       imgSrc = PE;
       country = 'Peru';
+      population = 32971854;
       break;
     case 'paraguay':
       imgSrc = PY;
       country = 'Paraguay';
+      population = 7132538;
       break;
     case 'suriname':
       imgSrc = SR;
       country = 'Suriname';
+      population = 586632;
       break;
     case 'uruguay':
       imgSrc = UY;
       country = 'Uruguay';
+      population = 3473730;
       break;
     case 'venezuela':
       imgSrc = VE;
       country = 'Venezuela (Bolivarian Republic)';
+      population = 28435940;
       break;
     default:
       imgSrc = S_A;
@@ -91,22 +106,18 @@ const Details = () => {
 
   const {
     name,
-    // population,
     confirmed,
     active,
-    // deathRate,
-    // casesPerMillion,
     deaths,
     timeline,
   } = detailsData;
 
-  // console.log('detailsData', detailsData);
-  // console.log('homeData', homeData);
-  // const getPopulation = (total, country) => total + country.population;
+  const deathRate = (deaths / confirmed) * 100;
+  const casesPerMillion = parseInt((confirmed / population) * 1000000, 10);
+
   const getConfirmed = (total, country) => total + country.confirmed;
   const getDeaths = (total, country) => total + country.deaths;
 
-  // const populationSouthAmerica = homeData.reduce(getPopulation, 0);
   const confirmedSouthAmerica = homeData.reduce(getConfirmed, 0);
   const deathsSouthAmerica = homeData.reduce(getDeaths, 0);
 
@@ -126,7 +137,7 @@ const Details = () => {
               <h3>COUNTRY STATS</h3>
             </section>
             <section className="statistics">
-              {/* <div className="population">
+              <div className="population">
                 <div>
                   <p className="number">{population?.toLocaleString() || 0}</p>
                   <p className="text">population</p>
@@ -139,7 +150,7 @@ const Details = () => {
                   <p className="number">{deathRate?.toFixed(2) || 0}</p>
                   <p className="text">death rate</p>
                 </div>
-              </div> */}
+              </div>
               <div className="active">
                 <div>
                   <p className="number">{active?.toLocaleString() || 0}</p>
@@ -157,11 +168,11 @@ const Details = () => {
             </section>
             <h5>South America</h5>
             <div className="pie">
-              {/* <PieCountry
+              <PieCountry
                 title="Population"
                 country={population}
                 continent={populationSouthAmerica}
-              /> */}
+              />
               <PieCountry
                 title="Deaths"
                 country={deaths}
