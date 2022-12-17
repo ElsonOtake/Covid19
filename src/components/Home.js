@@ -14,7 +14,7 @@ const Home = () => {
   }, [covid19Data.length]);
 
   const getSumConfirmed = (total, country) => total + country.confirmed;
-
+  console.log(covid19Data);
   return (
     <main className="mainHome">
       {
