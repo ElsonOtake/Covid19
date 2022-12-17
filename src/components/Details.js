@@ -26,45 +26,60 @@ const Details = () => {
   const { slug } = useParams();
 
   let imgSrc;
+  let country;
+
   switch (slug) {
     case 'argentina':
       imgSrc = AR;
+      country = 'Argentina';
       break;
     case 'bolivia':
       imgSrc = BO;
+      country = 'Bolivia';
       break;
     case 'brazil':
       imgSrc = BR;
+      country = 'Brazil';
       break;
     case 'chile':
       imgSrc = CL;
+      country = 'Chile';
       break;
     case 'colombia':
       imgSrc = CO;
+      country = 'Colombia';
       break;
     case 'ecuador':
       imgSrc = EC;
+      country = 'Ecuador';
       break;
     case 'french-guiana':
       imgSrc = GF;
+      country = 'French Guiana';
       break;
     case 'guyana':
       imgSrc = GY;
+      country = 'Guyana';
       break;
     case 'peru':
       imgSrc = PE;
+      country = 'Peru';
       break;
     case 'paraguay':
       imgSrc = PY;
+      country = 'Paraguay';
       break;
     case 'suriname':
       imgSrc = SR;
+      country = 'Suriname';
       break;
     case 'uruguay':
       imgSrc = UY;
+      country = 'Uruguay';
       break;
     case 'venezuela':
       imgSrc = VE;
+      country = 'Venezuela (Bolivarian Republic)';
       break;
     default:
       imgSrc = S_A;
@@ -77,39 +92,28 @@ const Details = () => {
   const {
     name,
     // population,
-    // confirmed,
+    confirmed,
     active,
     // deathRate,
     // casesPerMillion,
-    // deaths,
+    deaths,
     timeline,
   } = detailsData;
 
-  const {
-    // name,
-    // population,
-    confirmed,
-    // active,
-    // deathRate,
-    // casesPerMillion,
-    deaths,
-    // timeline,
-  } = homeData;
-
+  // console.log('detailsData', detailsData);
+  // console.log('homeData', homeData);
   // const getPopulation = (total, country) => total + country.population;
   const getConfirmed = (total, country) => total + country.confirmed;
-  const getactive = (total, country) => total + country.active;
   const getDeaths = (total, country) => total + country.deaths;
 
   // const populationSouthAmerica = homeData.reduce(getPopulation, 0);
   const confirmedSouthAmerica = homeData.reduce(getConfirmed, 0);
-  const activeSouthAmerica = homeData.reduce(getactive, 0);
   const deathsSouthAmerica = homeData.reduce(getDeaths, 0);
 
   return (
     <>
       {
-        detailsData.slug === slug ? (
+        name === country ? (
           <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
@@ -159,19 +163,14 @@ const Details = () => {
                 continent={populationSouthAmerica}
               /> */}
               <PieCountry
-                title="Confirmed"
-                country={confirmed}
-                continent={confirmedSouthAmerica}
-              />
-              <PieCountry
-                title="active"
-                country={active}
-                continent={activeSouthAmerica}
-              />
-              <PieCountry
                 title="Deaths"
                 country={deaths}
                 continent={deathsSouthAmerica}
+              />
+              <PieCountry
+                title="Confirmed"
+                country={confirmed}
+                continent={confirmedSouthAmerica}
               />
             </div>
           </main>
