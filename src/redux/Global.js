@@ -1,3 +1,3 @@
-const urlWHO = 'https://corona-api.com/countries';
+const urlCovid19 = 'https://api.covid19api.com/';
 
-export default urlWHO;
+export default urlCovid19;
