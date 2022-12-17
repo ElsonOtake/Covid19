@@ -17,8 +17,6 @@ const southAmericaCountries = [
   'venezuela',
 ];
 
-// https://api.covid19api.com/total/country/brazil?from=2022-12-11T00:00:00Z&to=2022-12-17T00:00:00Z
-
 export const filterCovid19 = (data) => {
   const response = [];
   data.Countries.forEach((country) => {
