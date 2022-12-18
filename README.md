@@ -1,63 +1,126 @@
-# WHO Covid19
+<a name="readme-top"></a>
 
->WHO Covid19 is a web application for presenting numerical data regarding the covid-19 pandemic in South America. The used API provides statistics via REST API from The World Health Organization Situation Reports, Johns Hopkins CSSE, The U.S. Department of Health & Human Services, The National Health Commission of the People’s Republic of China, The European Centre for Disease Prevention and Control, and China CDC Weekly. This API retrieves data by country, including population, the number of the virus confirmed, recovered, critical cases, deaths, recovered per death ratio, cases per million population, and more. The data is updated multiple times a day.
+<!-- TABLE OF CONTENTS -->
 
+# 📗 Table of Contents
 
-## Built With
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+- [👥 Author](#author)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [📝 License](#license)
 
-- HTML
-- JavaScript
-- CSS
-- Git
-- React
-- Redux
+<!-- PROJECT DESCRIPTION -->
 
+# 📖 Covid19 <a name="about-project"></a>
 
-## Live Demo (if available)
+**Covid19** is a web application to present numerical data about the covid-19 pandemic in South America. API data based on Johns Hopkins CSSE Reports.
 
-[Project Video](https://www.loom.com/share/c30711a8f5e74e9298f9869a61d1313a)
+## 🛠 Built With <a name="built-with"></a>
 
-[Live Demo (Heroku)](https://elsonotake-who-covid19.herokuapp.com/)
+### Tech Stack <a name="tech-stack"></a>
 
-[Live Demo (Netlify)](https://elsonotake-who-covid19.netlify.app)
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+  </ul>
+</details>
 
+<!-- Features -->
 
-## Getting Started
+### Key Features <a name="key-features"></a>
 
-To get a local copy, follow these simple steps.
+- **[Covid19 API](https://covid19api.com/)**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://elsonotake-who-covid19.netlify.app)
+
+- [Project Video](https://www.loom.com/share/c30711a8f5e74e9298f9869a61d1313a)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-Web browser installed
+In order to run this project you need:
+
+<a href="https://nodejs.org/">Node.js</a>
 
 ### Setup
 
-Cloning a repository
+Clone this repository to your desired folder:
 
-- On GitHub.com, navigate to the main page of the repository;
+using HTTPS:
+```sh
+  git clone https://github.com/ElsonOtake/Covid19.git
+  cd Covid19
+```
 
-- Above the list of files, click "Code" button;
+using an SSH key:
+```sh
+  git clone git@github.com:ElsonOtake/Covid19.git
+  cd Covid19
+```
 
-- Copy the URL to clone the repository. 
+using GitHub CLI:
+```sh
+  git clone gh repo clone ElsonOtake/Covid19
+  cd Covid19
+```
 
-  - To clone the repository using HTTPS : `https://github.com/ElsonOtake/WHO-Covid19.git`
+### Install
 
-  - To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority : `git@github.com:ElsonOtake/WHO-Covid19.git`
+Install this project with:
 
-  - To clone a repository using GitHub CLI : `gh repo clone ElsonOtake/WHO-Covid19`
+```sh
+  npm install
+```
 
-- Open Terminal;
+### Usage
 
-- Change the current working directory to the location where you want the cloned directory;
+To run the project, execute the following command:
 
-- Type `git clone`, and then paste the URL you copied earlier;
+```sh
+  npm start
+```
 
-- run `npm install` to install all dependencies;
+### Run tests
 
-- run `npm start` to start the application locally.
+To run tests, run the following command:
 
+```sh
+  npm test
+```
 
-## Author
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
+
+## 👥 Author <a name="author"></a>
 
 👤 **Elson Otake**
 
@@ -65,29 +128,54 @@ Cloning a repository
 - Twitter: [@elsonotake](https://twitter.com/elsonotake)
 - LinkedIn: [elsonotake](https://linkedin.com/in/elsonotake)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🤝 Contributing
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Expansion of information to other countries in the Americas**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Show your support
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
 
 Give a ⭐️ if you like this project!
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Acknowledgments
+<!-- ACKNOWLEDGEMENTS -->
 
-- Microverse
-- W3Schools
-- Stack Overflow
-- [About-Corona.Net](https://about-corona.net/)
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank:
+
+- [Microverse](https://www.microverse.org/)
+- [W3Schools](https://www.w3schools.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [About-Corona.Net](https://about-corona.net/) - Data used in the first version of the app
+- [Covid19 API](https://covid19api.com/)
 - [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 - [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 📝 License
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
 
 This project is [MIT](./MIT.md) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
