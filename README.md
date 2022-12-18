@@ -52,7 +52,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://elsonotake-who-covid19.netlify.app)
+- [Live Demo Link](https://covid19-ei9hazrhu-elsonotake.vercel.app)
 
 - [Project Video](https://www.loom.com/share/c30711a8f5e74e9298f9869a61d1313a)
 
