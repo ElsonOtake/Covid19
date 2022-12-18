@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axiosGetDetails from './axiosGetDetails';
 
-const FETCH = 'who-covid19/details/FETCH';
+const FETCH = 'covid19/details/FETCH';
 
 const detailsReducer = (state = [], action) => {
   switch (action.type) {
@@ -14,8 +14,8 @@ const detailsReducer = (state = [], action) => {
 
 export const fetchDetails = createAsyncThunk(
   FETCH,
-  async (code, { dispatch }) => {
-    const res = await axiosGetDetails(code)
+  async (slug, { dispatch }) => {
+    const res = await axiosGetDetails(slug)
       .then(
         (data) => dispatch({
           type: FETCH,

@@ -148,7 +148,7 @@ article h2 {
 }
 
 .population div,
-.critical div {
+.active div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -159,7 +159,7 @@ article h2 {
   background-color: rgb(100, 145, 224);
 }
 
-.critical div {
+.active div {
   width: 50%;
   padding: 2rem 0 2rem 15%;
 }

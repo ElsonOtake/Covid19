@@ -21,84 +21,110 @@ import PieCountry from '../charts/PieCountry';
 
 const Details = () => {
   const detailsData = useSelector((state) => state.detailsReducer);
-  const covid19Data = useSelector((state) => state.covid19Reducer);
+  const homeData = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
-  const { code } = useParams();
+  const { slug } = useParams();
 
   let imgSrc;
-  switch (code) {
-    case 'AR':
+  let country;
+  let population;
+  const populationSouthAmerica = 439477929;
+
+  switch (slug) {
+    case 'argentina':
       imgSrc = AR;
+      country = 'Argentina';
+      population = 45199254;
       break;
-    case 'BO':
+    case 'bolivia':
       imgSrc = BO;
+      country = 'Bolivia';
+      population = 11673021;
       break;
-    case 'BR':
+    case 'brazil':
       imgSrc = BR;
+      country = 'Brazil';
+      population = 212559417;
       break;
-    case 'CL':
+    case 'chile':
       imgSrc = CL;
+      country = 'Chile';
+      population = 19116201;
       break;
-    case 'CO':
+    case 'colombia':
       imgSrc = CO;
+      country = 'Colombia';
+      population = 50882891;
       break;
-    case 'EC':
+    case 'ecuador':
       imgSrc = EC;
+      country = 'Ecuador';
+      population = 17643054;
       break;
-    case 'GF':
+    case 'french-guiana':
       imgSrc = GF;
+      country = 'French Guiana';
+      population = 298682;
       break;
-    case 'GY':
+    case 'guyana':
       imgSrc = GY;
+      country = 'Guyana';
+      population = 786552;
       break;
-    case 'PE':
+    case 'peru':
       imgSrc = PE;
+      country = 'Peru';
+      population = 32971854;
       break;
-    case 'PY':
+    case 'paraguay':
       imgSrc = PY;
+      country = 'Paraguay';
+      population = 7132538;
       break;
-    case 'SR':
+    case 'suriname':
       imgSrc = SR;
+      country = 'Suriname';
+      population = 586632;
       break;
-    case 'UY':
+    case 'uruguay':
       imgSrc = UY;
+      country = 'Uruguay';
+      population = 3473730;
       break;
-    case 'VE':
+    case 'venezuela':
       imgSrc = VE;
+      country = 'Venezuela (Bolivarian Republic)';
+      population = 28435940;
       break;
     default:
       imgSrc = S_A;
   }
 
   useEffect(() => {
-    dispatch(fetchDetails(code));
+    dispatch(fetchDetails(slug));
   }, []);
 
   const {
     name,
-    population,
     confirmed,
-    critical,
-    deathRate,
-    casesPerMillion,
+    active,
     deaths,
     timeline,
   } = detailsData;
 
-  const getPopulation = (total, country) => total + country.population;
+  const deathRate = (deaths / confirmed) * 100;
+  const casesPerMillion = parseInt((confirmed / population) * 1000000, 10);
+
   const getConfirmed = (total, country) => total + country.confirmed;
-  const getCritical = (total, country) => total + country.critical;
   const getDeaths = (total, country) => total + country.deaths;
 
-  const populationSouthAmerica = covid19Data.reduce(getPopulation, 0);
-  const confirmedSouthAmerica = covid19Data.reduce(getConfirmed, 0);
-  const criticalSouthAmerica = covid19Data.reduce(getCritical, 0);
-  const deathsSouthAmerica = covid19Data.reduce(getDeaths, 0);
+  const confirmedSouthAmerica = homeData.reduce(getConfirmed, 0);
+  const deathsSouthAmerica = homeData.reduce(getDeaths, 0);
 
   return (
     <>
       {
-        detailsData.code === code ? (
+        name === country ? (
           <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
@@ -125,10 +151,10 @@ const Details = () => {
                   <p className="text">death rate</p>
                 </div>
               </div>
-              <div className="critical">
+              <div className="active">
                 <div>
-                  <p className="number">{critical?.toLocaleString() || 0}</p>
-                  <p className="text">critical</p>
+                  <p className="number">{active?.toLocaleString() || 0}</p>
+                  <p className="text">active</p>
                 </div>
                 <div>
                   <p className="number">{deaths?.toLocaleString() || 0}</p>
@@ -148,19 +174,14 @@ const Details = () => {
                 continent={populationSouthAmerica}
               />
               <PieCountry
-                title="Confirmed"
-                country={confirmed}
-                continent={confirmedSouthAmerica}
-              />
-              <PieCountry
-                title="Critical"
-                country={critical}
-                continent={criticalSouthAmerica}
-              />
-              <PieCountry
                 title="Deaths"
                 country={deaths}
                 continent={deathsSouthAmerica}
+              />
+              <PieCountry
+                title="Confirmed"
+                country={confirmed}
+                continent={confirmedSouthAmerica}
               />
             </div>
           </main>

@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import covid19Reducer from './Home/Home';
+import homeReducer from './Home/Home';
 import detailsReducer from './Details/Details';
 
 const rootReducer = combineReducers({
-  covid19Reducer,
+  homeReducer,
   detailsReducer,
 });
 
