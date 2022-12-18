@@ -1,89 +1,66 @@
 import { filterCovid19 } from '../redux/Home/axiosGetHome';
 
 const covidData = {
-  data: [{
-    code: 'AR',
-    coordinates: {
-      latitude: -34,
-      longitude: -64,
-    },
-    latest_data: {
-      calculated: {
-        death_rate: 2.187680456298307,
-        recovery_rate: 97.31493411791199,
-        recovered_vs_death_ratio: null,
-        cases_per_million_population: 1271,
-      },
-    },
-    confirmed: 5248847,
-    critical: 26107,
-    deaths: 114828,
-    recovered: 5107912,
-    name: 'Argentina',
-    population: 41343201,
-    today: {
-      deaths: 0,
-      confirmed: 0,
-    },
-    updated_at: '2022-07-28T14:32:54.834Z',
+  "ID": "80d15d47-588a-4276-8090-8872f57d9103",
+  "Message": "",
+  "Global": {
+    "NewConfirmed": 710872,
+    "TotalConfirmed": 650318672,
+    "NewDeaths": 2552,
+    "TotalDeaths": 6658397,
+    "NewRecovered": 0,
+    "TotalRecovered": 0,
+    "Date": "2022-12-17T22:35:13.713Z"
   },
-  {
-    code: 'CN',
-    coordinates: {
-      latitude: 35,
-      longitude: 105,
+  "Countries": [
+    {
+      "ID": "c685c3c2-4b5c-40e9-8389-c5aec8d7728e",
+      "Country": "Argentina",
+      "CountryCode": "AR",
+      "Slug": "argentina",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 9766975,
+      "NewDeaths": 0,
+      "TotalDeaths": 130041,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2022-12-17T22:35:13.713Z",
+      "Premium": {}
     },
-    latest_data: {
-      calculated: {
-        death_rate: 4.8298710228575,
-        recovery_rate: 94.10747400662596,
-        recovered_vs_death_ratio: null,
-        cases_per_million_population: 12,
-      },
+    {
+      "ID": "a4c2b80e-df68-40c4-b95e-7b9e8538f55a",
+      "Country": "China",
+      "CountryCode": "CN",
+      "Slug": "china",
+      "NewConfirmed": 15726,
+      "TotalConfirmed": 2693817,
+      "NewDeaths": 32,
+      "TotalDeaths": 16348,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2022-12-17T22:35:13.713Z",
+      "Premium": {}
     },
-    confirmed: 95986,
-    critical: 1020,
-    deaths: 4636,
-    recovered: 90330,
-    name: 'China',
-    population: 1330044000,
-    today: {
-      deaths: 0,
-      confirmed: 38,
-    },
-    updated_at: '2022-07-28T14:32:54.834Z',
-  },
-  {
-    code: 'UY',
-    coordinates: {
-      latitude: -33,
-      longitude: -56,
-    },
-    latest_data: {
-      calculated: {
-        cases_per_million_population: 15,
-        death_rate: 1.5582790171845908,
-        recovered_vs_death_ratio: null,
-        recovery_rate: 98.0623878160144,
-      },
-      deaths: 6051,
-      confirmed: 388313,
-      recovered: 380789,
-      critical: 1473,
-    },
-    name: 'Uruguay',
-    population: 3477000,
-    today: {
-      deaths: 0,
-      confirmed: 0,
-    },
-    updated_at: '2022-07-28T14:32:54.834Z',
-  }],
-};
+    {
+      "ID": "744c423e-39b4-4935-b29a-2f2ccbc8223f",
+      "Country": "Uruguay",
+      "CountryCode": "UY",
+      "Slug": "uruguay",
+      "NewConfirmed": 0,
+      "TotalConfirmed": 998047,
+      "NewDeaths": 0,
+      "TotalDeaths": 7548,
+      "NewRecovered": 0,
+      "TotalRecovered": 0,
+      "Date": "2022-12-17T22:35:13.713Z",
+      "Premium": {}
+    }
+  ]
+}
 
 describe('Test the filterCovid19 function', () => {
   test('size of the input object', () => {
-    expect(covidData.data.length).toBe(3);
+    expect(covidData.Countries.length).toBe(3);
   });
 
   test('size of the output object', () => {
@@ -91,7 +68,7 @@ describe('Test the filterCovid19 function', () => {
   });
 
   test('code of the input object', () => {
-    expect(covidData.data[0].code).toBe('AR');
+    expect(covidData.Countries[0].CountryCode).toBe('AR');
   });
 
   test('code of the output object', () => {
@@ -99,7 +76,7 @@ describe('Test the filterCovid19 function', () => {
   });
 
   test('name of the input object outside South America', () => {
-    expect(covidData.data[1].name).toBe('China');
+    expect(covidData.Countries[1].Country).toBe('China');
   });
 
   test('name of the output object South America filtered', () => {
@@ -107,18 +84,18 @@ describe('Test the filterCovid19 function', () => {
   });
 
   test('today of the input object', () => {
-    expect(covidData.data[0].today).toBeDefined();
+    expect(covidData.Countries[0].ID).toBeDefined();
   });
 
   test('today of the output object', () => {
-    expect(filterCovid19(covidData)[0].today).toBeUndefined();
+    expect(filterCovid19(covidData)[0].ID).toBeUndefined();
   });
 
   test('critical of the third input object', () => {
-    expect(covidData.data[2].latest_data.critical).toBe(1473);
+    expect(covidData.Countries[2].TotalDeaths).toBe(7548);
   });
 
   test('critical of the second output object', () => {
-    expect(filterCovid19(covidData)[1].critical).toBe(1473);
+    expect(filterCovid19(covidData)[1].deaths).toBe(7548);
   });
 });
