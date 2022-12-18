@@ -19,7 +19,7 @@ describe('Tests for the Details component', () => {
     expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getByRole('img')).toBeVisible();
 
-    expect(screen.getAllByRole('heading').length).toBe(9);
+    expect(screen.getAllByRole('heading').length).toBe(8);
   });
   test('Check for the snapshot', () => {
     expect(screen.debug()).toMatchSnapshot();
