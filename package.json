@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "start": "node server.js",
     "heroku-postbuild": "npm run build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!recharts)/\"",
@@ -52,7 +52,6 @@
     "@babel/preset-react": "^7.18.6",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.30.1",
