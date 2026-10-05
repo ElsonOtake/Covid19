@@ -14,7 +14,7 @@
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
+  - [Production Build](#production-build)
 - [👥 Author](#author)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -26,7 +26,7 @@
 
 # 📖 Covid19 <a name="about-project"></a>
 
-**Covid19** is a web application to present numerical data about the covid-19 pandemic in South America. API data based on Johns Hopkins CSSE Reports.
+**Covid19** is a web application to present numerical data and interactive charts about the COVID-19 pandemic in South America. Built with React 18 and powered by Vite.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -35,8 +35,19 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://redux.js.org/">Redux</a></li>
+    <li><a href="https://react.dev/">React 18</a></li>
+    <li><a href="https://redux-toolkit.js.org/">Redux Toolkit & React-Redux</a></li>
+    <li><a href="https://reactrouter.com/">React Router v6</a></li>
+    <li><a href="https://recharts.org/">Recharts</a></li>
+    <li><a href="https://vite.dev/">Vite 8</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://nodejs.org/">Node.js (v22)</a></li>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
   </ul>
 </details>
 
@@ -44,7 +55,10 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Covid19 API](https://covid19api.com/)**
+- **Real-time COVID-19 metrics across South American countries**
+- **Interactive SVG chart visualizers with Recharts**
+- **State management powered by Redux Toolkit**
+- **Production-ready Express server for static hosting**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -68,27 +82,15 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<a href="https://nodejs.org/">Node.js</a>
+- **Node.js** (v18.0.0 or higher, v22 recommended): [Download Node.js](https://nodejs.org/)
+- **npm** (v9+ or higher)
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-using HTTPS:
 ```sh
   git clone https://github.com/ElsonOtake/Covid19.git
-  cd Covid19
-```
-
-using an SSH key:
-```sh
-  git clone git@github.com:ElsonOtake/Covid19.git
-  cd Covid19
-```
-
-using GitHub CLI:
-```sh
-  git clone gh repo clone ElsonOtake/Covid19
   cd Covid19
 ```
 
@@ -102,18 +104,21 @@ Install this project with:
 
 ### Usage
 
-To run the project, execute the following command:
+To start the local development server with Hot Module Replacement (HMR):
 
 ```sh
-  npm start
+  npm run dev
 ```
 
-### Run tests
+Open your browser and navigate to http://localhost:3000/.
 
-To run tests, run the following command:
+### Production Build
+
+To build the project and launch the production Express server:
 
 ```sh
-  npm test
+npm run build
+npm start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,9 +129,9 @@ To run tests, run the following command:
 
 👤 **Elson Otake**
 
-- GitHub: [elsonotake](https://github.com/elsonotake)
-- Twitter: [@elsonotake](https://twitter.com/elsonotake)
-- LinkedIn: [elsonotake](https://linkedin.com/in/elsonotake)
+- GitHub: [@elsonotake](https://github.com/elsonotake)
+- X: [@elsonotake](https://x.com/elsonotake)
+- LinkedIn: [@elsonotake](https://linkedin.com/in/elsonotake)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
