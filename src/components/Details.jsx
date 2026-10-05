@@ -153,12 +153,8 @@ const Details = () => {
               </div>
               <div className="active">
                 <div>
-                  <p className="number">{active?.toLocaleString() || 0}</p>
-                  <p className="text">active</p>
-                </div>
-                <div>
-                  <p className="number">{deaths?.toLocaleString() || 0}</p>
-                  <p className="text">deaths</p>
+                  <p className="number">{(deaths || 0).toLocaleString()}</p>
+                  <p className="text">total deaths</p>
                 </div>
               </div>
             </section>
