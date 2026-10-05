@@ -19,86 +19,32 @@ import VE from '../images/VE.png';
 import LineCountry from '../charts/LineCountry';
 import PieCountry from '../charts/PieCountry';
 
+const COUNTRIES_CONFIG = {
+  argentina: { imgSrc: AR, country: 'Argentina', population: 45199254 },
+  bolivia: { imgSrc: BO, country: 'Bolivia (Plurinational State of)', population: 11673021 },
+  brazil: { imgSrc: BR, country: 'Brazil', population: 212559417 },
+  chile: { imgSrc: CL, country: 'Chile', population: 19116201 },
+  colombia: { imgSrc: CO, country: 'Colombia', population: 50882891 },
+  ecuador: { imgSrc: EC, country: 'Ecuador', population: 17643054 },
+  'french-guiana': { imgSrc: GF, country: 'French Guiana', population: 298682 },
+  guyana: { imgSrc: GY, country: 'Guyana', population: 786552 },
+  peru: { imgSrc: PE, country: 'Peru', population: 32971854 },
+  paraguay: { imgSrc: PY, country: 'Paraguay', population: 7132538 },
+  suriname: { imgSrc: SR, country: 'Suriname', population: 586632 },
+  uruguay: { imgSrc: UY, country: 'Uruguay', population: 3473730 },
+  venezuela: { imgSrc: VE, country: 'Venezuela (Bolivarian Republic of)', population: 28435940 },
+};
+
+const DEFAULT_CONFIG = { imgSrc: S_A, country: undefined, population: 0 };
+const POPULATION_SOUTH_AMERICA = 439477929;
+
 const Details = () => {
   const detailsData = useSelector((state) => state.detailsReducer);
   const homeData = useSelector((state) => state.homeReducer);
   const dispatch = useDispatch();
   const { slug } = useParams();
 
-  let imgSrc;
-  let country;
-  let population;
-  const populationSouthAmerica = 439477929;
-
-  switch (slug) {
-    case 'argentina':
-      imgSrc = AR;
-      country = 'Argentina';
-      population = 45199254;
-      break;
-    case 'bolivia':
-      imgSrc = BO;
-      country = 'Bolivia';
-      population = 11673021;
-      break;
-    case 'brazil':
-      imgSrc = BR;
-      country = 'Brazil';
-      population = 212559417;
-      break;
-    case 'chile':
-      imgSrc = CL;
-      country = 'Chile';
-      population = 19116201;
-      break;
-    case 'colombia':
-      imgSrc = CO;
-      country = 'Colombia';
-      population = 50882891;
-      break;
-    case 'ecuador':
-      imgSrc = EC;
-      country = 'Ecuador';
-      population = 17643054;
-      break;
-    case 'french-guiana':
-      imgSrc = GF;
-      country = 'French Guiana';
-      population = 298682;
-      break;
-    case 'guyana':
-      imgSrc = GY;
-      country = 'Guyana';
-      population = 786552;
-      break;
-    case 'peru':
-      imgSrc = PE;
-      country = 'Peru';
-      population = 32971854;
-      break;
-    case 'paraguay':
-      imgSrc = PY;
-      country = 'Paraguay';
-      population = 7132538;
-      break;
-    case 'suriname':
-      imgSrc = SR;
-      country = 'Suriname';
-      population = 586632;
-      break;
-    case 'uruguay':
-      imgSrc = UY;
-      country = 'Uruguay';
-      population = 3473730;
-      break;
-    case 'venezuela':
-      imgSrc = VE;
-      country = 'Venezuela (Bolivarian Republic)';
-      population = 28435940;
-      break;
-    default:
-      imgSrc = S_A;
-  }
+  const { imgSrc, country, population } = COUNTRIES_CONFIG[slug] || DEFAULT_CONFIG;
 
   useEffect(() => {
     dispatch(fetchDetails(slug));
@@ -107,13 +53,12 @@ const Details = () => {
   const {
     name,
     confirmed,
-    active,
     deaths,
     timeline,
   } = detailsData;
 
-  const deathRate = (deaths / confirmed) * 100;
-  const casesPerMillion = parseInt((confirmed / population) * 1000000, 10);
+  const deathRate = confirmed ? (deaths / confirmed) * 100 : 0;
+  const casesPerMillion = population ? parseInt((confirmed / population) * 1000000, 10) : 0;
 
   const getConfirmed = (total, country) => total + country.confirmed;
   const getDeaths = (total, country) => total + country.deaths;
@@ -130,7 +75,7 @@ const Details = () => {
               <img src={imgSrc} alt={`${name} map`} />
               <section>
                 <h1>{name}</h1>
-                <p className="confirmed">{`${confirmed?.toLocaleString() || 0} Confirmed`}</p>
+                <p className="confirmed">{`${(confirmed || 0).toLocaleString()} Confirmed`}</p>
               </section>
             </article>
             <section>
@@ -139,26 +84,22 @@ const Details = () => {
             <section className="statistics">
               <div className="population">
                 <div>
-                  <p className="number">{population?.toLocaleString() || 0}</p>
+                  <p className="number">{(population || 0).toLocaleString()}</p>
                   <p className="text">population</p>
                 </div>
                 <div>
-                  <p className="number">{casesPerMillion?.toLocaleString() || 0}</p>
+                  <p className="number">{(casesPerMillion || 0).toLocaleString()}</p>
                   <p className="text">cases / million</p>
                 </div>
                 <div>
-                  <p className="number">{deathRate?.toFixed(2) || 0}</p>
+                  <p className="number">{(deathRate || 0).toFixed(2)}</p>
                   <p className="text">death rate</p>
                 </div>
               </div>
               <div className="active">
                 <div>
-                  <p className="number">{active?.toLocaleString() || 0}</p>
-                  <p className="text">active</p>
-                </div>
-                <div>
-                  <p className="number">{deaths?.toLocaleString() || 0}</p>
-                  <p className="text">deaths</p>
+                  <p className="number">{(deaths || 0).toLocaleString()}</p>
+                  <p className="text">total deaths</p>
                 </div>
               </div>
             </section>
@@ -171,7 +112,7 @@ const Details = () => {
               <PieCountry
                 title="Population"
                 country={population}
-                continent={populationSouthAmerica}
+                continent={POPULATION_SOUTH_AMERICA}
               />
               <PieCountry
                 title="Deaths"

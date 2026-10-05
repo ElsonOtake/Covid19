@@ -1,51 +1,36 @@
-import axios from 'axios';
-import urlCovid19 from '../Global';
+import covidData from '../../data/south_america_2021.json';
 
-export const filterDetails = (data) => {
-  const timeline = [];
-  let date;
-  let newConfirmed;
-  let newDeaths;
-  let active;
-  let auxConfirmed;
-  let auxDeaths;
-  data.slice(-8).forEach((info) => {
-    if (auxConfirmed == null) {
-      auxConfirmed = info.Confirmed;
-      auxDeaths = info.Deaths;
-    } else {
-      date = info.Date.substr(8, 2);
-      newConfirmed = info.Confirmed - auxConfirmed;
-      auxConfirmed = info.Confirmed;
-      newDeaths = info.Deaths - auxDeaths;
-      auxDeaths = info.Deaths;
-      active = info.Active;
-      timeline.push({
-        date, newConfirmed, newDeaths, active,
-      });
-    }
-  });
-  return (
-    {
-      name: data.slice(-1)[0].Country,
-      active: data.slice(-1)[0].Active,
-      confirmed: data.slice(-1)[0].Confirmed,
-      deaths: data.slice(-1)[0].Deaths,
-      timeline,
-    }
-  );
-};
-
-const today = new Date().toJSON().slice(0, 10);
-const lastWeek = new Date(new Date().getTime() - (10 * 24 * 60 * 60 * 1000)).toJSON().slice(0, 10);
+function getSimulated2021Date() {
+  const now = new Date();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  return `2021-${month}-${day}`;
+}
 
 const axiosGetDetails = async (slug) => {
-  try {
-    const response = await axios.get(`${urlCovid19}total/country/${slug}?from=${lastWeek}&to=${today}`);
-    return filterDetails(response.data);
-  } catch (error) {
-    throw new Error(error);
+  const records = covidData[slug];
+  if (!records) {
+    throw new Error('Country not found');
   }
+
+  const targetDate = getSimulated2021Date();
+  const pastRecords = records.filter((r) => r.date <= targetDate);
+  const recentDays = pastRecords.slice(-8);
+
+  const timeline = recentDays.map((r) => ({
+    date: r.date.slice(8, 10),
+    newConfirmed: r.newConfirmed,
+    newDeaths: r.newDeaths,
+  }));
+
+  const latest = recentDays[recentDays.length - 1] || records[0];
+
+  return {
+    name: latest.country,
+    confirmed: latest.confirmed,
+    deaths: latest.deaths,
+    timeline,
+  };
 };
 
 export default axiosGetDetails;

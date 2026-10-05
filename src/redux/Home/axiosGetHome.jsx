@@ -1,46 +1,33 @@
-import axios from 'axios';
-import urlCovid19 from '../Global';
+import covidData from '../../data/south_america_2021.json';
 
-const southAmericaCountries = [
-  'argentina',
-  'bolivia',
-  'brazil',
-  'chile',
-  'colombia',
-  'ecuador',
-  'french-guiana',
-  'guyana',
-  'peru',
-  'paraguay',
-  'suriname',
-  'uruguay',
-  'venezuela',
-];
+function getSimulated2021Date() {
+  const now = new Date();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  return `2021-${month}-${day}`;
+}
 
-export const filterCovid19 = (data) => {
-  const response = [];
-  data.Countries.forEach((country) => {
-    if (southAmericaCountries.includes(country.Slug)) {
-      response.push({
-        slug: country.Slug,
-        code: country.CountryCode,
-        name: country.Country,
-        confirmed: country.TotalConfirmed,
-        deaths: country.TotalDeaths,
-        date: country.Date,
+const axiosGetHome = async () => {
+  const targetDate = getSimulated2021Date();
+  const summary = [];
+
+  Object.keys(covidData).forEach((slug) => {
+    const records = covidData[slug];
+    const record = records.filter((r) => r.date <= targetDate).pop() || records[0];
+
+    if (record) {
+      summary.push({
+        slug: record.slug,
+        code: record.code,
+        name: record.country,
+        confirmed: record.confirmed,
+        deaths: record.deaths,
+        date: record.date,
       });
     }
   });
-  return response;
-};
 
-const axiosGetHome = async () => {
-  try {
-    const response = await axios.get(`${urlCovid19}summary`);
-    return filterCovid19(response.data);
-  } catch (error) {
-    throw new Error(error);
-  }
+  return summary;
 };
 
 export default axiosGetHome;
