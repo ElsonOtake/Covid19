@@ -9,5 +9,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
+    chunkSizeWarningLimit: 1000, // Silences the >500kB warning for large chart libraries
   },
 });
