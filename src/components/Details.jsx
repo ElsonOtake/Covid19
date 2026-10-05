@@ -20,22 +20,22 @@ import LineCountry from '../charts/LineCountry';
 import PieCountry from '../charts/PieCountry';
 
 const COUNTRIES_CONFIG = {
-  argentina: { imgSrc: AR, population: 45199254 },
-  bolivia: { imgSrc: BO, population: 11673021 },
-  brazil: { imgSrc: BR, population: 212559417 },
-  chile: { imgSrc: CL, population: 19116201 },
-  colombia: { imgSrc: CO, population: 50882891 },
-  ecuador: { imgSrc: EC, population: 17643054 },
-  'french-guiana': { imgSrc: GF, population: 298682 },
-  guyana: { imgSrc: GY, population: 786552 },
-  peru: { imgSrc: PE, population: 32971854 },
-  paraguay: { imgSrc: PY, population: 7132538 },
-  suriname: { imgSrc: SR, population: 586632 },
-  uruguay: { imgSrc: UY, population: 3473730 },
-  venezuela: { imgSrc: VE, population: 28435940 },
+  argentina: { imgSrc: AR, country: 'Argentina', population: 45199254 },
+  bolivia: { imgSrc: BO, country: 'Bolivia (Plurinational State of)', population: 11673021 },
+  brazil: { imgSrc: BR, country: 'Brazil', population: 212559417 },
+  chile: { imgSrc: CL, country: 'Chile', population: 19116201 },
+  colombia: { imgSrc: CO, country: 'Colombia', population: 50882891 },
+  ecuador: { imgSrc: EC, country: 'Ecuador', population: 17643054 },
+  'french-guiana': { imgSrc: GF, country: 'French Guiana', population: 298682 },
+  guyana: { imgSrc: GY, country: 'Guyana', population: 786552 },
+  peru: { imgSrc: PE, country: 'Peru', population: 32971854 },
+  paraguay: { imgSrc: PY, country: 'Paraguay', population: 7132538 },
+  suriname: { imgSrc: SR, country: 'Suriname', population: 586632 },
+  uruguay: { imgSrc: UY, country: 'Uruguay', population: 3473730 },
+  venezuela: { imgSrc: VE, country: 'Venezuela (Bolivarian Republic of)', population: 28435940 },
 };
 
-const DEFAULT_CONFIG = { imgSrc: S_A, population: 0 };
+const DEFAULT_CONFIG = { imgSrc: S_A, country: undefined, population: 0 };
 const POPULATION_SOUTH_AMERICA = 439477929;
 
 const Details = () => {
@@ -44,7 +44,7 @@ const Details = () => {
   const dispatch = useDispatch();
   const { slug } = useParams();
 
-  const { imgSrc, population } = COUNTRIES_CONFIG[slug] || DEFAULT_CONFIG;
+  const { imgSrc, country, population } = COUNTRIES_CONFIG[slug] || DEFAULT_CONFIG;
 
   useEffect(() => {
     dispatch(fetchDetails(slug));
@@ -69,7 +69,7 @@ const Details = () => {
   return (
     <>
       {
-        Boolean(name) ? (
+        name === country ? (
           <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
