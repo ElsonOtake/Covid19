@@ -38,7 +38,7 @@ const Details = () => {
       break;
     case 'bolivia':
       imgSrc = BO;
-      country = 'Bolivia';
+      country = 'Bolivia (Plurinational State of)';
       population = 11673021;
       break;
     case 'brazil':
@@ -93,7 +93,7 @@ const Details = () => {
       break;
     case 'venezuela':
       imgSrc = VE;
-      country = 'Venezuela (Bolivarian Republic)';
+      country = 'Venezuela (Bolivarian Republic of)';
       population = 28435940;
       break;
     default:
@@ -124,7 +124,7 @@ const Details = () => {
   return (
     <>
       {
-        name === country ? (
+        Boolean(name) ? (
           <main className="mainDetails">
             <article>
               <img src={imgSrc} alt={`${name} map`} />
