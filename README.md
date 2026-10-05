@@ -14,6 +14,7 @@
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
+  - [Run tests](#run-tests)
   - [Production Build](#production-build)
 - [👥 Author](#author)
 - [🔭 Future Features](#future-features)
@@ -26,7 +27,7 @@
 
 # 📖 Covid19 <a name="about-project"></a>
 
-**Covid19** is a web application to present numerical data and interactive charts about the COVID-19 pandemic in South America. Built with React 18 and powered by Vite.
+**Covid19** is a web application presenting numerical metrics and interactive charts about the COVID-19 pandemic across South America. Built with React 18, Redux Toolkit, and Vite, powered by official World Health Organization (WHO) datasets.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -55,9 +56,10 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Real-time COVID-19 metrics across South American countries**
+- **Dynamic COVID-19 metrics & 7-day trendlines across 13 South American countries (official WHO data)**
+- **Smart date simulation: maps the current day and month to peak 2021 pandemic records**
 - **Interactive SVG chart visualizers with Recharts**
-- **State management powered by Redux Toolkit**
+- **Robust client-side state management powered by Redux Toolkit**
 - **Production-ready Express server for static hosting**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -111,6 +113,14 @@ To start the local development server with Hot Module Replacement (HMR):
 ```
 
 Open your browser and navigate to http://localhost:3000/.
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  npm test
+```
 
 ### Production Build
 
@@ -170,8 +180,7 @@ I would like to thank:
 - [Microverse](https://www.microverse.org/)
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
-- [About-Corona.Net](https://about-corona.net/) - Data used in the first version of the app
-- [Covid19 API](https://covid19api.com/)
+- [WHO COVID-19 dashboard](https://data.who.int/dashboards/covid19/)
 - [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio)
 - [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/)
 
