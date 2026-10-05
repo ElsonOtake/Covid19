@@ -15,13 +15,14 @@ const Header = () => {
         <i className="fa-solid fa-earth-americas" />
       </NavLink>
       <h2>Covid19 in South America</h2>
-      <div>
-        <p className="headerDate">
-          Historical WHO dataset ({simulatedDate})
-        </p>
-      </div>
+      <p className="headerDate">
+        Historical WHO dataset
+        (
+        {simulatedDate}
+        )
+      </p>
     </header>
   );
 };
-  
+
 export default Header;
