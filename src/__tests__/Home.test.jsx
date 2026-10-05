@@ -12,7 +12,7 @@ describe('Tests for the Home component', () => {
       <Router>
         <Home />
       </Router>
-      </Provider>,
+    </Provider>,
   );
   test('Check for the following test on screen', () => {
     expect(screen.getByText('STATS BY COUNTRY')).toBeInTheDocument();
