@@ -1,0 +1,14 @@
+src/redux/Details/axiosGetDetails.jsx
+  h_da978aeed56e72 1,3-8,11-13,15-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1baebca95501d9d75074f57fbb15d6973119c876",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
