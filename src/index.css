@@ -237,3 +237,10 @@ h5 {
   flex-direction: column;
   align-items: center;
 }
+
+.headerDate {
+  font-size: 0.75rem;
+  color: #ffff00;
+  margin-left: 8px;
+  font-weight: 500;
+}
