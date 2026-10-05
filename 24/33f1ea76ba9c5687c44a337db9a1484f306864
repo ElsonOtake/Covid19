@@ -1,0 +1,14 @@
+src/__tests__/Home.test.jsx
+  h_da978aeed56e72 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2433f1ea76ba9c5687c44a337db9a1484f306864",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
