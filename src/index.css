@@ -25,7 +25,7 @@ a {
   width: 50%;
 }
 
-header NavLink {
+header i {
   width: auto;
   cursor: pointer;
   justify-self: start;
@@ -35,6 +35,15 @@ div {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+
+p {
+  font-size: 0.75rem;
+}
+
+h2 {
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
 }
 
 header h2 {
@@ -50,10 +59,6 @@ header p {
   width: auto;
   color: #ff0;
   font-weight: 500;
-}
-
-p {
-  font-size: 0.75rem;
 }
 
 main img {
@@ -124,11 +129,6 @@ article i {
   top: 1rem;
   right: 1rem;
   font-size: 0.75rem;
-}
-
-h2 {
-  padding-bottom: 0.5rem;
-  font-size: 0.8rem;
 }
 
 article h2 {
@@ -250,9 +250,11 @@ h5 {
     grid-template-columns: auto 1fr auto;
     gap: 8px;
   }
+
   header h2 {
     font-size: 0.95rem;
   }
+
   header p {
     font-size: 0.65rem;
   }
@@ -260,12 +262,12 @@ h5 {
 
 /* Tablet responsive tweak */
 @media (min-width: 768px) {
-  article h2{
+  article h2 {
     font-size: 2rem;
   }
 
   article p,
-  article i  {
+  article i {
     font-size: 1rem;
   }
 }
@@ -277,7 +279,7 @@ h5 {
   }
 
   article p,
-  article i  {
+  article i {
     font-size: 1.5rem;
   }
 }
@@ -289,7 +291,7 @@ h5 {
   }
 
   article p,
-  article i  {
+  article i {
     font-size: 1.75rem;
   }
 }
@@ -301,7 +303,7 @@ h5 {
   }
 
   article p,
-  article i  {
+  article i {
     font-size: 2rem;
   }
 }
