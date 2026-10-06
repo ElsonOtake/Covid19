@@ -123,6 +123,7 @@ article i {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  font-size: 0.75rem;
 }
 
 h2 {
@@ -259,11 +260,12 @@ h5 {
 
 /* Tablet responsive tweak */
 @media (min-width: 768px) {
-  article h2 {
+  article h2{
     font-size: 2rem;
   }
 
-  article p {
+  article p,
+  article i  {
     font-size: 1rem;
   }
 }
@@ -274,7 +276,8 @@ h5 {
     font-size: 3rem;
   }
 
-  article p {
+  article p,
+  article i  {
     font-size: 1.5rem;
   }
 }
@@ -285,7 +288,8 @@ h5 {
     font-size: 3.5rem;
   }
 
-  article p {
+  article p,
+  article i  {
     font-size: 1.75rem;
   }
 }
@@ -296,7 +300,8 @@ h5 {
     font-size: 4rem;
   }
 
-  article p {
+  article p,
+  article i  {
     font-size: 2rem;
   }
 }
