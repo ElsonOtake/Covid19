@@ -1,0 +1,17 @@
+src/index.css
+  h_da978aeed56e72 14-15,28,31,40-42,45,47-48,51-52,246-258
+  h_da978aeed56e72 18,43-44
+src/components/Header.jsx
+  h_da978aeed56e72 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1d9a87d287b0aedefb7dbc61588b6df4f00b799a",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
