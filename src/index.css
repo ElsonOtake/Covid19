@@ -256,3 +256,47 @@ h5 {
     font-size: 0.65rem;
   }
 }
+
+/* Tablet responsive tweak */
+@media (min-width: 768px) {
+  article h2 {
+    font-size: 2rem;
+  }
+
+  article p {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop responsive tweak */
+@media (min-width: 1000px) {
+  article h2 {
+    font-size: 3rem;
+  }
+
+  article p {
+    font-size: 1.5rem;
+  }
+}
+
+/* WideScreen responsive tweak */
+@media (min-width: 1200px) {
+  article h2 {
+    font-size: 3.5rem;
+  }
+
+  article p {
+    font-size: 1.75rem;
+  }
+}
+
+/* FullHD responsive tweak */
+@media (min-width: 1400px) {
+  article h2 {
+    font-size: 4rem;
+  }
+
+  article p {
+    font-size: 2rem;
+  }
+}
