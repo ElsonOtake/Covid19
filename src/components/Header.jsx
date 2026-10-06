@@ -15,7 +15,7 @@ const Header = () => {
         <i className="fa-solid fa-earth-americas" />
       </NavLink>
       <h2>Covid19 in South America</h2>
-      <p className="headerDate">
+      <p>
         Historical WHO dataset
         (
         {simulatedDate}
