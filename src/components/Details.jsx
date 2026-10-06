@@ -21,7 +21,7 @@ import PieCountry from '../charts/PieCountry';
 
 const COUNTRIES_CONFIG = {
   argentina: { imgSrc: AR, country: 'Argentina', population: 45199254 },
-  bolivia: { imgSrc: BO, country: 'Bolivia (Plurinational State of)', population: 11673021 },
+  bolivia: { imgSrc: BO, country: 'Bolivia', population: 11673021 },
   brazil: { imgSrc: BR, country: 'Brazil', population: 212559417 },
   chile: { imgSrc: CL, country: 'Chile', population: 19116201 },
   colombia: { imgSrc: CO, country: 'Colombia', population: 50882891 },
@@ -32,7 +32,7 @@ const COUNTRIES_CONFIG = {
   paraguay: { imgSrc: PY, country: 'Paraguay', population: 7132538 },
   suriname: { imgSrc: SR, country: 'Suriname', population: 586632 },
   uruguay: { imgSrc: UY, country: 'Uruguay', population: 3473730 },
-  venezuela: { imgSrc: VE, country: 'Venezuela (Bolivarian Republic of)', population: 28435940 },
+  venezuela: { imgSrc: VE, country: 'Venezuela', population: 28435940 },
 };
 
 const DEFAULT_CONFIG = { imgSrc: S_A, country: undefined, population: 0 };
