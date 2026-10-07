@@ -270,6 +270,14 @@ h5 {
   article i {
     font-size: 1rem;
   }
+
+  main article h1 {
+    font-size: 4rem;
+  }
+
+  main article p {
+    font-size: 2rem;
+  }
 }
 
 /* Desktop responsive tweak */
@@ -281,6 +289,14 @@ h5 {
   article p,
   article i {
     font-size: 1.5rem;
+  }
+
+  main article h1 {
+    font-size: 6rem;
+  }
+
+  main article p {
+    font-size: 3rem;
   }
 }
 
@@ -294,6 +310,14 @@ h5 {
   article i {
     font-size: 1.75rem;
   }
+
+  main article h1 {
+    font-size: 7rem;
+  }
+
+  main article p {
+    font-size: 3.5rem;
+  }
 }
 
 /* FullHD responsive tweak */
@@ -305,5 +329,13 @@ h5 {
   article p,
   article i {
     font-size: 2rem;
+  }
+
+  main article h1 {
+    font-size: 8rem;
+  }
+
+  main article p {
+    font-size: 4rem;
   }
 }
