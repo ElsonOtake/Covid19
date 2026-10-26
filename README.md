@@ -16,6 +16,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Production Build](#production-build)
+  - [Deployment](#deployment)
 - [👥 Author](#author)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -84,7 +85,7 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- **Node.js** (v18.0.0 or higher, v22 recommended): [Download Node.js](https://nodejs.org/)
+- **Node.js 22.x** (required by `package.json`; also pinned in `.nvmrc`): [Download Node.js](https://nodejs.org/)
 - **npm** (v9+ or higher)
 
 ### Setup
@@ -130,6 +131,20 @@ To build the project and launch the production Express server:
 npm run build
 npm start
 ```
+
+### Deployment
+
+The same repository can be deployed to both Vercel and Netlify.
+
+| Setting | Vercel | Netlify |
+| --- | --- | --- |
+| Node.js | 22.x, selected by `package.json` | 22, selected by `.nvmrc` |
+| Build command | `npm run build` | `npm run build` |
+| Output / publish directory | `build` | `build` |
+
+For Netlify, connect the repository and select the branch to deploy (for example, `dev`). Keep the base directory at the repository root. The included `netlify.toml` sets the build command, publish directory, and fallback to `index.html` for React Router URLs such as `/details/brazil`. Netlify serves the generated static files directly; it does not need `npm start` or the Express server.
+
+Commit and push `.nvmrc` and `netlify.toml`, then redeploy. If Netlify reports `EBADENGINE` with Node 24, confirm the deployed branch includes `.nvmrc` and the base directory is the repository root. Keep `engine-strict=true` in `.npmrc` so incompatible Node versions are caught during installation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
