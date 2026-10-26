@@ -1,0 +1,20 @@
+src/__tests__/__snapshots__/Article.test.jsx.snap
+  h_da978aeed56e72 1-3
+src/__tests__/__snapshots__/Details.test.jsx.snap
+  h_da978aeed56e72 1-3
+src/__tests__/__snapshots__/Header.test.jsx.snap
+  h_da978aeed56e72 1-3
+src/__tests__/__snapshots__/Home.test.jsx.snap
+  h_da978aeed56e72 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a64dd5cc502c9d093293d45809f0f7defac28c69",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}

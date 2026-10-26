@@ -1,0 +1,14 @@
+src/__tests__/axiosGetHome.test.jsx
+  h_da978aeed56e72 1,3-4,6-7,10-11,14-21,24-27,30-33,36-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9e25e3892afc1afa7d1c69c398da49b34a0c23d4",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}

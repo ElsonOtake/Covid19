@@ -1,0 +1,15 @@
+src/index.css
+  h_da978aeed56e72 28,40-43,47-48,253,257
+  h_da978aeed56e72 44-46,265,270,282,294,306,309
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "198979faff20ce3fcf99a719e670808bd15b7e12",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+package-lock.json
+  h_da978aeed56e72 29,40-41,891-900,934-1195,1661-1690,3028-3037,4123-4140,4312-4326,6250-6510,6913-6931,7398-7426,8433-8466,8858-8867,9475-9504,10020-10110
+package.json
+  h_da978aeed56e72 51,62-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7d0528ba50270726d108184b05045684e930ec35",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
