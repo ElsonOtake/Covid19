@@ -1,0 +1,24 @@
+.nvmrc
+  s_7393614533ba17::t_b7448322507fd9 1
+netlify.toml
+  s_7393614533ba17::t_b7448322507fd9 1-8
+README.md
+  s_7393614533ba17::t_b7448322507fd9 19,88,135-147
+  s_7393614533ba17::t_a74784b9e2ffef 148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "df3af6d0c44dffcd85c6c8dc03454918a68cbb54",
+  "prompts": {},
+  "sessions": {
+    "s_7393614533ba17": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a17925-a3ef-7163-a7ff-c80a59d80674",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
