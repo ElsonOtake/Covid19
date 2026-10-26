@@ -69,7 +69,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://covid19-coral.vercel.app/)
+- [https://covid19-coral.vercel.app/](https://covid19-coral.vercel.app/)
+
+- [https://elsonotake-who-covid19.netlify.app/](https://elsonotake-who-covid19.netlify.app/)
 
 - [Project Video](https://www.loom.com/share/c30711a8f5e74e9298f9869a61d1313a)
 
